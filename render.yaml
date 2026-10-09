@@ -1,0 +1,46 @@
+# Render "Blueprint" — lets you deploy the backend with one click from the
+# Render dashboard (New -> Blueprint -> point at this repo) instead of manually
+# configuring build/start commands every time. Free tier, no card required.
+#
+# After the first deploy, go to the service's Environment tab and add your
+# actual secret values (API keys) — those are deliberately NOT included here
+# since this file is meant to be committed to your repo, and secrets never
+# belong in version control.
+services:
+  - type: web
+    name: medreport-ai-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt && python -m spacy download en_core_web_sm"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      # Pins the Python version Render builds with. Without this, Render may
+      # default to a newer Python (3.14 was observed) that pymupdf==1.24.10
+      # has no prebuilt wheel for, causing a from-source compile that fails —
+      # the exact same issue hit locally on Windows earlier in this project.
+      # backend/runtime.txt pins the same version as a second safeguard.
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      # Required — set these to your actual values in the Render dashboard
+      # after the first deploy (Environment tab). Leave any you're not using
+      # blank/unset; the provider chain automatically skips unconfigured ones.
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SARVAM_API_KEY
+        sync: false
+      - key: MISTRAL_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      # CORS_ORIGINS must exactly match your deployed frontend URL, e.g.
+      # ["https://your-app.vercel.app"] — set after you know the frontend URL.
+      - key: CORS_ORIGINS
+        sync: false
+      # Optional — set to a free Neon/Supabase Postgres connection string if
+      # you need data (uploaded reports, chat history) to survive restarts.
+      # Free-tier disks are ephemeral otherwise: SQLite resets on every
+      # redeploy or wake-from-sleep. Leave unset to just use local SQLite
+      # (fine for a one-off demo, not for data that needs to persist).
+      - key: DATABASE_URL
+        sync: false

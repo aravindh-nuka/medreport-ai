@@ -1,0 +1,23 @@
+# Frontend
+frontend/node_modules
+frontend/dist
+frontend/android
+frontend/ios
+frontend/assets
+
+# Backend
+backend/.venv
+backend/__pycache__
+backend/**/__pycache__
+backend/medreport.db
+backend/storage/uploads/*
+backend/storage/vector_store/*
+!backend/storage/uploads/.gitkeep
+!backend/storage/vector_store/.gitkeep
+backend/static
+
+# General
+.git
+.gitignore
+*.md
+!README_HF_SPACE.md
