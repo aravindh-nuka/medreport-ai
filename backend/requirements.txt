@@ -20,7 +20,8 @@ spacy==3.7.5
 # after install run: python -m spacy download en_core_web_sm
 
 # --- RAG ---
-sentence-transformers==3.1.1
+fastembed==0.5.1   # ONNX runtime build of the same all-MiniLM-L6-v2 model — no PyTorch,
+                    # so it fits in Render's 512 MB free tier (sentence-transformers did not)
 faiss-cpu==1.8.0.post1
 numpy==1.26.4
 

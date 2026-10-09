@@ -12,9 +12,6 @@ import re
 from dataclasses import dataclass, field
 from functools import lru_cache
 
-import spacy
-from spacy.matcher import Matcher
-
 from app.config import get_settings
 from extraction.loinc_validator import match_test_name
 
@@ -23,6 +20,10 @@ settings = get_settings()
 
 @lru_cache
 def _get_nlp():
+    # Imported lazily: spaCy is not needed to start the server, and importing it
+    # eagerly costs ~100+ MB of RAM (matters on Render's 512 MB free tier).
+    import spacy
+
     return spacy.load(settings.SPACY_MODEL)
 
 

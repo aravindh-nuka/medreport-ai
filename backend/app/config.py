@@ -110,7 +110,7 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str = ""
 
     # --- RAG ---
-    EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
+    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
     CHUNK_SIZE_CHARS: int = 800
     CHUNK_OVERLAP_CHARS: int = 120
     RAG_TOP_K: int = 5

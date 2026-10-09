@@ -13,7 +13,6 @@ from functools import lru_cache
 
 import faiss
 import numpy as np
-from sentence_transformers import SentenceTransformer
 
 from app.config import get_settings
 from rag.chunking import Chunk, chunk_text
@@ -22,8 +21,23 @@ settings = get_settings()
 
 
 @lru_cache
-def _get_embedder() -> SentenceTransformer:
-    return SentenceTransformer(settings.EMBEDDING_MODEL)
+def _get_embedder():
+    """Lazily load the embedding model on first use (not at import/startup), so the
+    web server binds its port quickly and idle memory stays low.
+
+    Uses fastembed (ONNX runtime) instead of sentence-transformers/PyTorch: same
+    all-MiniLM-L6-v2 model, but ~5x less memory — required for Render's 512 MB tier."""
+    from fastembed import TextEmbedding
+
+    return TextEmbedding(model_name=settings.EMBEDDING_MODEL, threads=1)
+
+
+def _embed(texts: list[str]) -> np.ndarray:
+    """Return L2-normalized float32 embeddings, shape (len(texts), dim)."""
+    vectors = np.asarray(list(_get_embedder().embed(texts)), dtype="float32")
+    norms = np.linalg.norm(vectors, axis=1, keepdims=True)
+    norms[norms == 0] = 1.0
+    return vectors / norms
 
 
 @dataclass
@@ -46,9 +60,7 @@ def build_index(report_id: str, full_text: str) -> str:
     if not chunks:
         raise ValueError("No text available to index for this report.")
 
-    embedder = _get_embedder()
-    vectors = embedder.encode([c.text for c in chunks], normalize_embeddings=True)
-    vectors = np.asarray(vectors, dtype="float32")
+    vectors = _embed([c.text for c in chunks])
 
     index = faiss.IndexFlatIP(vectors.shape[1])  # cosine similarity via normalized inner product
     index.add(vectors)
@@ -75,9 +87,7 @@ def retrieve(report_id: str, query: str, top_k: int | None = None) -> list[Retri
     with open(chunks_path, encoding="utf-8") as f:
         chunk_lookup = {c["chunk_id"]: c["text"] for c in json.load(f)}
 
-    embedder = _get_embedder()
-    query_vec = embedder.encode([query], normalize_embeddings=True)
-    query_vec = np.asarray(query_vec, dtype="float32")
+    query_vec = _embed([query])
 
     scores, indices = index.search(query_vec, min(top_k, index.ntotal))
 
