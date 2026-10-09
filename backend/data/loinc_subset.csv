@@ -1,0 +1,534 @@
+loinc_code,common_name,synonyms,category
+718-7,Hemoglobin,HB;HGB;Haemoglobin,CBC
+789-8,RBC Count,Red Blood Cell Count;RBC;Total RBC Count,CBC
+6690-2,WBC Count,White Blood Cell Count;WBC;Total Leucocyte Count;TLC,CBC
+777-3,Platelet Count,PLT;Platelets,CBC
+4544-3,Hematocrit,HCT;PCV;Packed Cell Volume,CBC
+785-6,MCH,Mean Corpuscular Hemoglobin,CBC
+786-4,MCHC,Mean Corpuscular Hemoglobin Concentration,CBC
+787-2,MCV,Mean Corpuscular Volume,CBC
+788-0,RDW,Red Cell Distribution Width;RDW-CV,CBC
+32623-1,MPV,Mean Platelet Volume,CBC
+770-8,Neutrophils Percent,Neutrophils %;Segmented Neutrophils,CBC
+736-9,Lymphocytes Percent,Lymphocytes %,CBC
+5905-5,Monocytes Percent,Monocytes %,CBC
+713-8,Eosinophils Percent,Eosinophils %,CBC
+706-2,Basophils Percent,Basophils %,CBC
+751-8,Neutrophils Absolute,ANC;Absolute Neutrophil Count,CBC
+731-0,Lymphocytes Absolute,ALC;Absolute Lymphocyte Count,CBC
+742-7,Monocytes Absolute,AMC;Absolute Monocyte Count,CBC
+711-2,Eosinophils Absolute,AEC;Absolute Eosinophil Count,CBC
+704-7,Basophils Absolute,Absolute Basophil Count,CBC
+30341-2,ESR,Erythrocyte Sedimentation Rate,CBC
+1742-6,ALT,SGPT;Alanine Aminotransferase,LFT
+1920-8,AST,SGOT;Aspartate Aminotransferase,LFT
+1975-2,Total Bilirubin,Bilirubin Total;T. Bilirubin,LFT
+1968-7,Direct Bilirubin,Bilirubin Direct;D. Bilirubin;Conjugated Bilirubin,LFT
+1971-1,Indirect Bilirubin,Bilirubin Indirect;Unconjugated Bilirubin,LFT
+6768-6,Alkaline Phosphatase,ALP,LFT
+2885-2,Total Protein,Protein Total,LFT
+1751-7,Albumin,ALB,LFT
+1759-0,GGT,Gamma-Glutamyl Transferase;Gamma GT,LFT
+2532-0,LDH,Lactate Dehydrogenase,LFT
+10834-0,Globulin,A/G Ratio Component,LFT
+2160-0,Creatinine,Serum Creatinine;CREAT,KFT
+3094-0,Blood Urea Nitrogen,BUN;Urea,KFT
+2951-2,Sodium,Na;Serum Sodium,KFT
+2823-3,Potassium,K;Serum Potassium,KFT
+2075-0,Chloride,Cl;Serum Chloride,KFT
+33914-3,eGFR,Estimated Glomerular Filtration Rate,KFT
+3084-1,Uric Acid,Serum Uric Acid,KFT
+17861-6,Calcium,Serum Calcium;Ca,KFT
+2777-1,Phosphorus,Inorganic Phosphorus;Phosphate,KFT
+19123-9,Magnesium,Serum Magnesium;Mg,KFT
+33863-2,Cystatin C,,KFT
+2093-3,Total Cholesterol,Cholesterol Total;TC,Lipid
+2571-8,Triglycerides,TG,Lipid
+2085-9,HDL Cholesterol,HDL,Lipid
+13457-7,LDL Cholesterol,LDL;LDL Calculated,Lipid
+13458-5,VLDL Cholesterol,VLDL,Lipid
+9830-1,Non-HDL Cholesterol,Non HDL,Lipid
+1884-6,Apolipoprotein B,Apo B,Lipid
+3016-3,TSH,Thyroid Stimulating Hormone,Thyroid
+3053-6,Free T4,FT4;Thyroxine Free,Thyroid
+3051-0,Free T3,FT3;Triiodothyronine Free,Thyroid
+3026-2,Total T4,T4;Thyroxine Total,Thyroid
+8098-6,Anti-TPO,Anti Thyroid Peroxidase;TPO Antibody,Thyroid
+2345-7,Glucose,Blood Sugar;FBS;Fasting Blood Sugar;RBS,Diabetes
+4548-4,HbA1c,Glycated Hemoglobin;Hemoglobin A1c,Diabetes
+20438-8,Postprandial Glucose,PPBS;PP Blood Sugar,Diabetes
+2986-8,Insulin Fasting,Fasting Insulin,Diabetes
+5811-5,Urine Glucose,Glucose Urine,Urine
+5804-0,Urine Protein,Protein Urine;Albumin Urine,Urine
+5794-3,Urine Specific Gravity,Specific Gravity,Urine
+5803-2,Urine pH,pH Urine,Urine
+5797-6,Urine Ketones,Ketone Bodies Urine,Urine
+5770-3,Urine WBC,Pus Cells;Leukocytes Urine,Urine
+5792-7,Urine RBC,Red Blood Cells Urine,Urine
+5799-2,Urine Bilirubin,Bilirubin Urine,Urine
+5802-4,Urine Urobilinogen,Urobilinogen,Urine
+20454-5,Urine Occult Blood,Blood Urine,Urine
+10839-9,Troponin I,Cardiac Troponin I;cTnI,Cardiac
+6598-7,Troponin T,Cardiac Troponin T;cTnT,Cardiac
+2157-6,Creatine Kinase,CK;CPK,Cardiac
+30934-4,NT-proBNP,N-terminal proBNP,Cardiac
+42719-5,BNP,B-type Natriuretic Peptide,Cardiac
+5902-2,PT,Prothrombin Time,Coagulation
+6301-6,INR,International Normalized Ratio,Coagulation
+14979-9,aPTT,Activated Partial Thromboplastin Time;PTT,Coagulation
+48065-7,D-Dimer,,Coagulation
+3255-7,Fibrinogen,,Coagulation
+1988-5,CRP,C-Reactive Protein,Inflammatory
+30522-7,hs-CRP,High Sensitivity CRP,Inflammatory
+2276-4,Ferritin,Serum Ferritin,Iron Studies
+2498-4,Serum Iron,Iron;Fe,Iron Studies
+2500-7,TIBC,Total Iron Binding Capacity,Iron Studies
+2502-3,Transferrin Saturation,Transferrin Sat,Iron Studies
+1989-3,Vitamin D,25-Hydroxy Vitamin D;25-OH Vitamin D,Vitamins
+2132-9,Vitamin B12,Cobalamin,Vitamins
+2284-8,Folate,Folic Acid;Serum Folate,Vitamins
+2143-6,Cortisol,Serum Cortisol,Hormones
+2991-8,Testosterone Total,Testosterone,Hormones
+2243-4,Estradiol,E2,Hormones
+2839-9,Progesterone,,Hormones
+2842-3,Prolactin,PRL,Hormones
+15067-2,FSH,Follicle Stimulating Hormone,Hormones
+10501-5,LH,Luteinizing Hormone,Hormones
+2731-8,PTH,Parathyroid Hormone,Hormones
+2857-1,PSA Total,Prostate Specific Antigen,Tumor Markers
+10334-1,CA-125,Cancer Antigen 125,Tumor Markers
+24108-3,CA 19-9,Carbohydrate Antigen 19-9,Tumor Markers
+2039-6,CEA,Carcinoembryonic Antigen,Tumor Markers
+1834-1,AFP,Alpha-Fetoprotein,Tumor Markers
+2744-1,Blood pH,Arterial pH,ABG
+2019-8,pCO2,Partial Pressure CO2,ABG
+2703-7,Oxygen Saturation,SpO2,Vitals
+2708-6,O2 Saturation Arterial,SaO2,ABG
+1959-6,Bicarbonate,HCO3,ABG
+19239-3,Base Excess,,ABG
+2524-7,Lactate,Serum Lactate,ABG
+8480-6,Systolic Blood Pressure,BP Systolic,Vitals
+8462-4,Diastolic Blood Pressure,BP Diastolic,Vitals
+8867-4,Heart Rate,Pulse Rate;HR,Vitals
+8310-5,Body Temperature,Temperature,Vitals
+9279-1,Respiratory Rate,Resp Rate,Vitals
+3141-9,Weight,Body Weight,Vitals
+8302-2,Height,Body Height,Vitals
+39156-5,BMI,Body Mass Index,Vitals
+5778-6,Occult Blood Stool,Fecal Occult Blood,Stool
+2951-2,Serum Sodium,Na,Electrolytes
+2823-3,Serum Potassium,K,Electrolytes
+17861-6,Ionized Calcium,Ca Ionized,Electrolytes
+2075-0,Serum Chloride,Cl,Electrolytes
+5195-3,HBsAg,Hepatitis B Surface Antigen,Infectious
+7918-6,HIV Screen,HIV Antibody Screen,Infectious
+14338-8,RA Factor,Rheumatoid Factor;RF,Immunology
+1798-8,Amylase,Serum Amylase,Pancreatic
+3040-3,Lipase,Serum Lipase,Pancreatic
+1847-3,Prealbumin,Transthyretin,LFT
+13965-9,Homocysteine,,Cardiac
+1926-5,Ammonia,Blood Ammonia,LFT
+2692-2,Osmolality Serum,Serum Osmolality,Electrolytes
+4679-7,Reticulocyte Count,Retic Count,CBC
+4678-9,Reticulocyte Percent,Retic %,CBC
+5048-4,ANA,Antinuclear Antibody,Immunology
+4485-9,C3 Complement,Complement C3,Immunology
+4498-2,C4 Complement,Complement C4,Immunology
+1811-9,Vitamin E,Tocopherol,Vitamins
+5477-5,Zinc,Serum Zinc,Vitamins
+2161-8,Urine Creatinine,Creatinine Urine,Urine
+14957-5,Urine Microalbumin,Microalbumin Urine,Urine
+9318-7,Urine Albumin Creatinine Ratio,ACR;UACR,Urine
+2955-3,Urine Sodium,Sodium Urine,Urine
+2828-2,Urine Potassium,Potassium Urine,Urine
+3006-4,Thyroglobulin,,Thyroid
+8015-0,Anti-Thyroglobulin Antibody,Anti-TG,Thyroid
+33959-8,Procalcitonin,PCT,Inflammatory
+2890-2,Urine Protein Creatinine Ratio,UPCR,Urine
+5292-8,VDRL,Venereal Disease Research Laboratory Test,Infectious
+33762-6,NT-proBNP Point of Care,,Cardiac
+1994-3,Free Beta hCG,,Hormones
+20563-3,hCG Quantitative,Beta hCG;Pregnancy Test,Hormones
+17856-6,Calcium Corrected,Corrected Calcium,KFT
+2947-0,Sodium Whole Blood,,Electrolytes
+32167-9,Anion Gap,,Electrolytes
+3167-4,PT INR Point of Care,,Coagulation
+33037-3,Fecal Calprotectin,,Stool
+6299-2,Whole Blood Clotting Time,,Coagulation
+5671-3,Blood Lead Level,Lead Level,Toxicology
+5688-7,Blood Alcohol Level,Ethanol Level,Toxicology
+2614-6,Carboxyhemoglobin,COHb,Toxicology
+2888-6,CSF Protein,Cerebrospinal Fluid Protein,CSF
+27818-4,Protein C,,Coagulation
+27819-2,Protein S,,Coagulation
+3173-2,Antithrombin III,,Coagulation
+3181-5,Factor VIII,,Coagulation
+2281-4,IGF-1,Insulin-like Growth Factor 1,Hormones
+1668-3,17-Hydroxyprogesterone,17-OHP,Hormones
+1836-6,Aldosterone,,Hormones
+32207-3,H. Pylori Stool Antigen,,Stool
+14563-1,Lactoferrin Stool,Fecal Lactoferrin,Stool
+22314-9,Hepatitis A Total Antibody,Anti-HAV Total,Infectious
+13954-3,Hepatitis B e-Antigen,HBeAg,Infectious
+36908-2,TB QuantiFERON,QuantiFERON-TB Gold,Infectious
+14971-6,Mantoux Test,PPD Skin Test,Infectious
+5230-8,Anti-dsDNA,Double Stranded DNA Antibody,Immunology
+5238-1,Anti-Smith Antibody,Anti-Sm,Immunology
+4993-2,Complement CH50,Total Hemolytic Complement,Immunology
+6875-9,CA 15-3,Cancer Antigen 15-3,Tumor Markers
+14631-6,Chromogranin A,,Tumor Markers
+44877-9,AMH,Anti-Mullerian Hormone,Hormones
+27334-2,G6PD,Glucose-6-Phosphate Dehydrogenase,Hematology
+1932-3,Osmolal Gap,,Electrolytes
+2695-5,Ovarian Reserve Panel,,Fertility
+2069-3,Copper Urine,,Urine
+34714-6,BRCA Screening,,Genetics
+10378-8,Polychromasia,Polychromasia Bld Ql Smear;Polychro;Polychromatophilia;Polychromic;Qual;Screen;WB;Whole blood,CBC
+11253-2,Tacrolimus,Tacrolimus Bld-mCnc;Drugs;FK506;FK-506;Fujimycin;Hecoria;L04AD02;Prograf;Protopic,Toxicology
+11277-1,Epithelial cells squamous,Squamous #/area UrnS HPF;#/area;Cell;Cellularity;Epi;Epi Cells;Epith;Epithelia;Number areic,Urine
+11475-1,Microorganism,Microorganism Spec Cult;Cult;Cultures;ID;Identity or presence;Infectious Disease;InfectiousDisease;Microorganisms;Misc,Infectious
+11556-8,Oxygen,pO2 Bld;Lung;O2 partial pressure;Partial pressure;Pulmonary;Pulmonology;Respiratory;WB;Whole blood,Chemistry
+2028-9,Carbon dioxide,CO2 SerPl-sCnc;Carbonic anhydride;cCO2;CO2CT;ctCO2;Serum or plasma;SR;tCO2;UniversalLabOrders,Chemistry
+11579-0,Thyrotropin,TSH SerPl DL<=0.05 mIU/L-aCnc;2nd generation TSH;DL&lt;=0.05 mIU/L;Left;Levo;Serum or plasma;SR;Thyroid stimulating hormone,Chemistry
+12180-6,Calcium ionized,Ca-I SerPl ISE-sCnc;Ca;Ca-I;Cal;Calcium active;Calcium free;Coagulation factor I;ICA;Ion,Chemistry
+26453-1,Erythrocytes,RBC # Bld;Discocytes;Erthrocyte;Erythrocyte;Number concentration;Number Concentration (count/vol);RBC;RBCS;Red blood cell,CBC
+16128-1,Hepatitis C virus Ab,HCV Ab Ser Ql;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;HCV,Infectious
+2089-1,Cholesterol in LDL,LDLc SerPl-mCnc;Cardio;Chol;Choles;Cholest;Cholesterol total;Cholesterols;Heart Disease;LDLc,Chemistry
+14314-9,Benzoylecgonine,BZE Ur Ql Scn;BEC;BEG;Benz;Benzoylec;BZE;Cocaine degradation production;Cocaine metabolite;Crack metabolite,Toxicology
+15152-2,Bilirubin glucuronidated,Bilirub Conj SerPl-mCnc;Bc;Bili;Bilirub Conj;Bilirubin conjugated;Bilirubin glucuronides;Bilirubins;Billirubin;Heme,Chemistry
+16935-9,Hepatitis B virus surface Ab,HBV surface Ab Ser-aCnc;Aby;Antby;Anti;Antibodies;Antibody;anti-HBsAg;Autoantibodies;Autoantibody,Infectious
+1743-4,Alanine aminotransferase,ALT SerPl w P-5'-P-cCnc;Ala;Alanine transaminase;ALAT;Alpha alanine;ALT;Glutamic-pyruvic transferase;L-alanine;P prime,Chemistry
+630-4,Bacteria,Bacteria Ur Cult;Bact;Cult;Cultures;ID;Identity or presence;Infectious Disease;InfectiousDisease;UA,Infectious
+18282-4,Cannabinoids,Cannabinoids Ur Ql Scn;Addiction;Cannabinoid;Delta-9-tetrahydrocannabinol;Drugs;Drugs of abuse;Illicit;Marijuana;PotentialForAbuse,Toxicology
+58413-6,Erythrocytes nucleated/Leukocytes,nRBC Bld Auto-Rto;Discocytes;Erthrocyte;Erythroblasts;Erythrocyte;Normoblasts;nRBC;nRBCs;Nuc,CBC
+50563-6,Urobilinogen,Urobilinogen Ur Strip.auto-mCnc;Dip stick;Dipstick;SmQn;UA;UBG;UR;URINALYSIS;Urn,Urine
+19254-2,Oxygen^^adjusted to patient's actual temperature,pO2 temp adj Bld;adj;Lung;O2 partial pressure;Partial pressure;Pulmonary;Pulmonology;Respiratory;S prime,Chemistry
+53327-3,Bilirubin,Bilirub Ur Strip.auto-mCnc;Bili;Bilirubins;Billirubin;Dip stick;Dipstick;SmQn;TBIL;UA,Urine
+20507-0,Reagin Ab,RPR Ser Ql;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Charcoal flocculation,Infectious
+20570-8,Erythrocyte/Blood,Hct VFr Bld Calc;Calc;Calculation;Discocyte;Erc;Erythrocytes;Percent;RBC;Red blood cell,CBC
+2106-3,Choriogonadotropin,HCG Ur Ql;CG;Choriogonadotropins total;Chorionic gonadotropin;Gyn;Gynecology;HCG;Human chorionic gonadotropin;OB,Chemistry
+21197-9,Cholesterol esters/Cholesterol total,Cholest Ester MFr SerPl;Chol;Choles;Cholest;Cholest Ester;Cholesterol total;Cholesterols;Ester;Lipid,Chemistry
+21198-7,Choriogonadotropin beta subunit,B-HCG SerPl-aCnc;B HCG;Beta HCG;Beta human chorionic gonadotropin;B-HCG;CG;Choriogonadotropin beta chain;Choriogonadotropins total;Chorionic gonadotropin,Chemistry
+21418-9,Neutrophil Ab,Neutrophil Ab Ser Ql;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Granulocytic Ab,Immunology
+21613-5,Chlamydia trachomatis DNA,C trach DNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;C trac;C trach;C tracho,Infectious
+2324-2,Gamma glutamyl transferase,GGT SerPl-cCnc;Gamma glutamyl transpeptidase;Gamma-GTP;GGT;GGTP;GT;Serum or plasma;SR;UniversalLabOrders,Chemistry
+24111-7,Neisseria gonorrhoeae DNA,N gonorrhoea DNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Deoxyribonucleic acid;DNA probe;GC,Infectious
+2458-8,IgA,IgA SerPl-mCnc;Immune globulin A;Immunoglobulin A;Serum or plasma;SR;UniversalLabOrders,Chemistry
+2514-8,Ketones,Ketones Ur Ql Strip;Acetest;Acetoacetate;Acetoacetates;Acetone bodies;Dip stick;Dipstick;Ketone;Ketone bodies,Chemistry
+26444-0,Basophils,Basophils # Bld;Baso;Basophil;Basos;Bph;Number concentration;Number Concentration (count/vol);WB;Whole blood,CBC
+26449-9,Eosinophils,Eosinophil # Bld;Eos;Eosin;Eosino;Eosinophil;Eosins;Number concentration;Number Concentration (count/vol);UniversalLabOrders,CBC
+26450-7,Eosinophils/Leukocytes,Eosinophil NFr Bld;Eos;Eosin;Eosino;Eosinophil;Eosins;Percent;WB;WBC,CBC
+26464-8,Leukocytes,WBC # Bld;Number concentration;Number Concentration (count/vol);UniversalLabOrders;WB;WBC;WBCs;White blood cell;White blood cells,CBC
+26474-7,Lymphocytes,Lymphocytes # Bld;Lymp;Lymph;Lympho;Lymphocyte;Lymphs;Lymphs%;Number concentration;Number Concentration (count/vol),CBC
+26478-8,Lymphocytes/Leukocytes,Lymphocytes NFr Bld;Lymp;Lymph;Lympho;Lymphocyte;Lymphs;Lymphs%;Percent;WB,CBC
+26484-6,Monocytes,Monocytes # Bld;Mono;Monocyte;Monos;Number concentration;Number Concentration (count/vol);WB;Whole blood,CBC
+26485-3,Monocytes/Leukocytes,Monocytes NFr Bld;Mono;Monocyte;Monos;Percent;WB;WBC;WBCs;White blood cell,CBC
+26498-6,Myelocytes/Leukocytes,Myelocytes NFr Bld;Heme;Myel;Myelo;Myelocyte;Percent;WB;WBC;WBCs,CBC
+26499-4,Neutrophils,Neutrophils # Bld;Neut;Neutr;Neutrophil;Number concentration;Number Concentration (count/vol);PMN;PNM;WB,CBC
+26511-6,Neutrophils/Leukocytes,Neutrophils NFr Bld;Neut;Neutr;Neutrophil;Percent;PMN;PNM;WB;WBC,CBC
+26515-7,Platelets,Platelet # Bld;Number concentration;Number Concentration (count/vol);Platelet;Platelet count;Platelt;Plt;Thrb;Thrombocyte,CBC
+27297-1,Leukocyte esterase,Leukocyte esterase Ur-aCnc;Leukocytes;UA;UR;URINALYSIS;Urn;WBC;WBCs;White blood cell,Urine
+27353-2,Estimated average glucose,Est. average glucose Bld gHb Est-mCnc;eAG;eAVG;Est;Est. average glucose;estimation;gHb Est;Glu;Gluc,Chemistry
+50560-2,pH,pH Ur Strip.auto;Dip stick;Dipstick;Log molar concentration;SmQn;UA;UR;URINALYSIS;Urn,Urine
+28541-1,Metamyelocytes/Leukocytes,Metamyelocytes NFr Bld;Heme;Meta;Metamyelo;Metamyelocyte;Metamyelocyte%;Metas;Percent;WB,CBC
+28542-9,Platelet,PMV Bld;Platelets;Platelt;Plt;Thrombocyte;Thrombocytes;WB;Whole blood,CBC
+8247-9,Mucus,Mucous Threads UrnS Ql Micro;Mucous;Mucous Threads;Qual;Screen;UA;UR;URINALYSIS;Urine sediment,Urine
+2865-4,Alpha 1 globulin,Alpha1 Glob SerPl Elph-mCnc;Alfa;Alpha1 Glob;Electro;Electrophhrs;Electrophrs;Elp;Elph;Ep,Chemistry
+2868-8,Alpha 2 globulin,Alpha2 Glob SerPl Elph-mCnc;Alfa;Alpha2 Glob;Electro;Electrophhrs;Electrophrs;Elp;Elph;Ep,Chemistry
+2871-2,Beta globulin,B-Globulin SerPl Elph-mCnc;B-Globulin;Electro;Electrophhrs;Electrophrs;Elp;Elph;Ep;GLB,Chemistry
+2874-6,Gamma globulin,Gamma glob SerPl Elph-mCnc;Electro;Electrophhrs;Electrophrs;Elp;Elph;Ep;GLB;Glob,Chemistry
+2887-8,Protein,Prot Ur Ql;Prot;Qual;Screen;UA;UR;URINALYSIS;Urn,Urine
+2965-2,Observation,Sp Gr Ur;Sp Gr;UA;UniversalLabOrders;UR;Urn,Chemistry
+30180-4,Basophils/Leukocytes,Basophils NFr Bld;Baso;Basophil;Basos;Bph;Percent;WB;WBC;WBCs,CBC
+30239-8,Aspartate aminotransferase,AST SerPl w P-5'-P-cCnc;Asp;Aspartate amino transferase;Aspartate transaminase;Aspartic acid;AST;Glutamic oxaloacetic transaminase;P prime;Serum or plasma,Chemistry
+3024-7,Thyroxine free,T4 Free SerPl-mCnc;FR;FreeT4;Levothyroxine;Levo-thyroxine;L-thyroxine;Non-protein bound;Serum or plasma;SR,Chemistry
+3034-6,Transferrin,Transferrin SerPl-mCnc;Heme;Serum or plasma;Siderophilin;SR;Tf;Trf;TRFRN;UniversalLabOrders,Chemistry
+30376-8,Blasts,Blasts # Bld;Blast;Number concentration;Number Concentration (count/vol);WB;Whole blood,CBC
+30385-9,Erythrocyte,Erythrocyte DistWidth Bld;Discocyte;Erc;Erythrocytes;RBC;Red blood cell;Red blood cells;Red blood corpuscle;Red blood corpusles,CBC
+771-6,Erythrocytes nucleated,nRBC # Bld Auto;Discocytes;Erthrocyte;Erythroblasts;Erythrocyte;Normoblasts;nRBC;nRBCs;Nuc,CBC
+30539-1,Neutrophil cytoplasmic Ab perinuclear,p-ANCA Ser Ql;ACNA;ACPA;ANCA;Cytopl;Cytoplas;Granulocyte ab;Granulocyte nucleus ab;Neut,Immunology
+3097-3,Urea nitrogen/Creatinine,BUN/Creat SerPl;Blood urea nitrogen;BUN;CR;Crea;Creat;Mass concentration ratio;Mass ratio;MCRto,Chemistry
+31045-8,Creatinine/Urea nitrogen,Creat/Urea nit SerPl;Blood urea nitrogen;BUN;CR;Crea;Creat;Mass concentration ratio;Mass ratio;MCRto,Chemistry
+3274-8,Heparin unfractionated,UFH PPP Chro-aCnc;Anti-Xa;Chromogenic assay;ENZY;Enzymatic assay;Heme;Hep;Hepar;Heparn,Coagulation
+3298-7,Acetaminophen,APAP SerPl-mCnc;ACET;Acetamidophenol;Acetaminoph;Acetominophen;Addiction;APAP;c209;Drugs,Toxicology
+5796-8,Hyaline casts,Hyaline Casts #/area UrnS LPF;#/area;Cast;Number areic;UA;UR;URINALYSIS;Urine sediment;Urn,Urine
+33256-9,Leukocytes^^corrected for nucleated erythrocytes,WBC nRBC cor # Bld Auto;Discocytes;Erthrocyte;Erythrocyte;nRBC cor;Nuc;Number concentration;Number Concentration (count/vol);RBC,CBC
+3349-8,Amphetamines,Amphetamines Ur Ql;Addiction;Amph;Amphetam;Amphetamine;Drugs;Drugs of abuse;Illicit;PotentialForAbuse,Toxicology
+3377-9,Barbiturates,Barbiturates Ur Ql;Addiction;Barb;Barbiturate;Barbs;Drugs;Drugs of abuse;Illicit;PotentialForAbuse,Toxicology
+3390-2,Benzodiazepines,Benzodiaz Ur Ql;Benz;Benzodiaz;Benzodiazepine;Drugs;Qual;Screen;UA;UniversalLabOrders,Toxicology
+3414-0,Buprenorphine,Buprenorphine Ur Ql;Addiction;BU;BUP;Bupe;Buprenex;buprenorphine HCI;Buprex;Butrans,Toxicology
+35591-7,Creatinine renal clearance predicted,Creat Cl predicted SerPl C-G-vRate;Cl;Cl predicted;Clear;Clearanc;Clearances;Clr;Cockroft-Gault formula;CR,Chemistry
+35706-1,Albumin/Protein total,Albumin MFr SerPl;Alb;Albumin fraction;Albumin%;Percent;Prot;Protein.albumin;Serum or plasma;SR,Chemistry
+3773-9,Methadone,Methadone Ur Ql;Addiction;Dolophin;Dolophine;Drugs;Drugs of abuse;Illicit;METD;Methadose,Toxicology
+38518-7,Granulocytes immature/Leukocytes,Imm Granulocytes NFr Bld;Gran;Grans;Granulocyte;Granulocytes;Imm;Imm Granulocytes;Immat;Percent,CBC
+3879-4,Opiates,Opiates Ur Ql;Addiction;Drugs;Drugs of abuse;Heroin;Illicit;OP;Opi;Opiate,Toxicology
+38875-1,Coagulation,INR PPP/Bld;Clot;Clottable;Coag;Coagulation assay;Fac;Fact;Heme;Internat norm ratio,Coagulation
+4024-6,Salicylates,Salicylates SerPl-mCnc;2-Hydroxybenzoate;2-Hydroxybenzoic Acid;Drugs;o-Hydroxybenzoate;o-Hydroxybenzoic Acid;ortho-Hydroxybenzoate;ortho-Hydroxybenzoic Acid;Sali,Toxicology
+4092-3,Vancomycin^trough,Vancomycin Trough SerPl-mCnc;c162;Drugs;ID;Infectious Disease;InfectiousDisease;Pre;Predose;Pre-dose,Toxicology
+41995-2,Hemoglobin A1c,HbA1c Bld-mCnc;GHb;Glycated hemoglobin;Glycohaemogolobin;Glycohemogolobin;Glycosylated hemoglobin;HA1c;Haemoglobin;Hb,Chemistry
+43304-5,Chlamydia trachomatis rRNA,C trach rRNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;C trac;C trach;C tracho,Infectious
+43396-1,Cholesterol non HDL,NonHDLc SerPl-mCnc;Cardio;Chol;Choles;Cholest;Cholesterol total;Cholesterols;Heart Disease;Lipid,Chemistry
+43755-8,Casts,Casts #/area UrnS Auto;#/area;Cast;Number areic;UA;UR;URINALYSIS;Urine sediment;Urn,Urine
+43820-0,Bilirubin glucuronidated+Bilirubin albumin bound,Bilirub Direct SerPl Ql;Alb;Associated;Bc;Bili;Bili.delta;Bili-alb;Bilirub Conj;Bilirub Delta,Chemistry
+48058-2,Fibrin D-dimer,D Dimer PPP IA.DDU-mCnc;D Dimer;Dextro;EIA;ELFA;ELISA;Enzyme immunoassay;Fragment D-dimer;Heme,Coagulation
+48643-1,Glomerular filtration rate,"GFR SerPlBld Creatinine-bsd fmla /1.73sq;GFR;Glom;Modification of Diet in Renal Disease;PlasBld;SerPlBld;Serum or plasma;Serum, plasma or whole blood;Square Meter",Chemistry
+49024-3,Differential cell count method,Differential method Bld;Diff;Differential method;Differl;Differn;Meth;Method of;Typ;WB,CBC
+49054-0,Ercalcidiol,25(OH)D2 SerPl-mCnc;25 Hydroxyvitamin D 2;25 Hydroxyvitamin D2;25(OH)D2;25-Hydroxy calciferol;25-Hydroxycalciferol;25-Hydroxyergocalciferol;25-Hydroxyvitamin D 2;25-Hydroxyvitamin D2,Chemistry
+49936-8,Calcium ionized/Calcium total^^corrected for albumin,Ca-I Album cor MFr Bld;Alb;Album cor;Ca;Ca-I;Cal;Calcium active;Calcium free;Coagulation factor I,Chemistry
+50558-6,Nitrite,Nitrite Ur Ql Strip.auto;Dip stick;Dipstick;Qual;Screen;UA;UR;URINALYSIS;Urn,Urine
+51584-1,Granulocytes immature,Imm Granulocytes # Bld;Gran;Grans;Granulocyte;Granulocytes;Imm;Imm Granulocytes;Immat;Number concentration,CBC
+5196-1,Hepatitis B virus surface Ag,HBV surface Ag SerPl Ql IA;Antigen;Antigens;Australia antigen;EIA;ELFA;ELISA;Enzyme immunoassay;HBs,Infectious
+543-9,Mycobacterium sp,Mycobacterium Spec Cult;Acid Fast;Acid Fast Bacilli;Acid fast bacillus;AFB;Cult;Cultures;ID;Identity or presence,Infectious
+5643-2,Ethanol,Ethanol SerPl-mCnc;Alc;Alcohol;Drugs;Ethyl alcohol;EtOH;Serum or plasma;SR;UniversalLabOrders,Toxicology
+56888-1,HIV 1+2 Ab+HIV1 p24 Ag,HIV 1+2 Ab+HIV1 p24 Ag SerPl Ql IA;AIDS;Antigen;Antigens;EIA;ELFA;ELISA;Enzyme immunoassay;HIV 1 and 2 Ab,Infectious
+5787-7,Epithelial cells,Epi Cells #/area UrnS HPF;#/area;Cell;Cellularity;Epi;Epi Cells;Epith;Epithelia;Number areic,Urine
+580-1,Fungus,Fungus Spec Cult;Cult;Cultures;Fung;Fungal;Fungi;ID;Identity or presence;Infectious Disease,Infectious
+5820-6,Leukocyte casts,WBC Casts #/area UrnS LPF;#/area;Cast;Leukocytes;Number areic;UA;UR;URINALYSIS;Urine sediment,Urine
+62292-8,Calcidiol+ercalcidiol,25(OH)D3+25(OH)D2 SerPl-mCnc;25 Hydroxyvitamin D 2;25 Hydroxyvitamin D2;25(OH)D2;25(OH)D3;25(OH)D3+25(OH)D2;25-Hydroxy calciferol;25-Hydroxy Vit D total;25-Hydroxycalciferol,Chemistry
+67151-1,Troponin T cardiac,Troponin T SerPl HS-mCnc;Cardio;cTnT;Heart Disease;HS;Serum or plasma;SR;T prime;TnT,Chemistry
+702-1,Anisocytosis,Anisocytosis Bld Ql Smear;Aniso;Qual;Screen;WB;Whole blood,CBC
+764-1,Neutrophils band form/Leukocytes,Neuts Band NFr Bld Manual;Bands;bnd;N-Band;Neut;Neutr;Neutrophil;Neuts Band;Percent,CBC
+768-2,Neutrophils segmented,Neuts Seg # Bld Manual;Neut;Neutr;Neutrophil;Neuts Seg;N-Seg;Number concentration;Number Concentration (count/vol);PMN,CBC
+769-0,Neutrophils segmented/Leukocytes,Neuts Seg NFr Bld Manual;Neut;Neutr;Neutrophil;Neuts Seg;N-Seg;Percent;PMN;PNM,CBC
+774-0,Ovalocytes,Ovalocytes Bld Ql Smear;Ovalocyte;Ovalos;Qual;Screen;WB;Whole blood,CBC
+779-9,Poikilocytosis,Poikilocytosis Bld Ql Smear;Poikilo;Poikilocyte;Poikilocytes;Qual;Screen;WB;Whole blood,CBC
+783-1,Promyelocytes/Leukocytes,Promyelocytes NFr Bld Manual;Heme;Percent;Pro myelos;Progranulocyte;Progranulocytes;Promyel;Promyelocyte;WB,CBC
+9322-9,Cholesterol total/Cholesterol in HDL,Cholest/HDLc Prctl SerPl;Cardio;Chol;Choles;Cholest;Cholesterol total;Cholesterols;HDLc;HDL-C,Chemistry
+94500-6,SARS coronavirus 2 RNA,SARS-CoV-2 RNA Resp Ql NAA+probe;2019 Novel Coronavirus;2019-nCoV;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Breathing,Infectious
+10381-2,Target cells,Targets Bld Ql Smear;Cell;Cellularity;Codocyte;Codocytes;Qual;Screen;Targets;WB,CBC
+10886-0,Prostate specific Ag free,PSA Free SerPl-mCnc;fPSA;FR;Genitourinary;GU;Kallikrein 3;Non-protein bound;Oncology;P-30 antigen,Chemistry
+19642-8,oxyCODONE,oxyCODONE Ur Ql Scn;Addiction;Drugs;Drugs of abuse;Illicit;Lortab;OxyContin;Percocet;Percodan,Toxicology
+11011-4,Hepatitis C virus RNA,HCV RNA SerPl NAA+probe-aCnc;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;HCV;Hep,Infectious
+11054-4,Cholesterol in LDL/Cholesterol in HDL,LDLc/HDLc SerPl;Cardio;Chol;Choles;Cholest;Cholesterol total;Cholesterols;HDLc;HDL-C,Chemistry
+11153-4,Erythrocyte/Body fluid,"Hct VFr Fld Calc;BF;bod;Bodies;Body fluid;Body fluid, unsp;Calc;Calculation;Discocyte",CBC
+11268-0,Streptococcus pyogenes,S pyo Throat Ql Cult;Cult;Cultures;GAS;Group A Strep;ID;Infectious Disease;InfectiousDisease;Qual,Infectious
+11282-1,Cells counted total,Total Cells Counted Bld;Cell;Cellularity;Non-aggregate;Tot;Total cells;Total Cells Counted;Totl;WB,CBC
+11572-5,Rheumatoid factor,Rheumatoid fact SerPl-aCnc;Fac;Fact;RF;Rheum;Rheumatology;Serum or plasma;SR;UniversalLabOrders,Immunology
+12183-0,Cholesterol,"Cholest Fld-mCnc;BF;bod;Bodies;Body fluid;Body fluid, unsp;Chol;Choles;Cholest",Chemistry
+3043-7,Triglyceride,Trigl Bld-mCnc;Cardio;Heart Disease;Tg;Trig;Trigly;Triglycerides;Triglycrides;UniversalLabOrders,Chemistry
+12248-1,Epithelial cells renal,Renal Epi Cells UrnS Ql Micro;Cell;Cellularity;Epi;Epi Cells;Epith;Epithelia;Kidney cells;Qual,Urine
+13316-5,Enterococcus species vancomycin resistant,VRE Spec Ql Cult;c162;Cult;Cultures;ID;Infectious Disease;InfectiousDisease;Misc;Miscellaneous,Infectious
+26446-5,Blasts/Leukocytes,Blasts NFr Bld;Blast;Percent;WB;WBC;WBCs;White blood cell;White blood cells;Whole blood,CBC
+13950-1,Hepatitis A virus Ab IgM,HAV IgM SerPl Ql IA;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;EIA,Infectious
+13951-9,Hepatitis A virus Ab,HAV Ab Ser Ql IA;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;EIA,Infectious
+16933-4,Hepatitis B virus core Ab,HBV core Ab Ser Ql;Aby;Antby;Anti;Antibodies;Antibody;anti-HBc;Autoantibodies;Autoantibody,Infectious
+13967-5,Sex hormone binding globulin,SHBG SerPl-sCnc;Androgen binding protein;Bind;Estradiol binding globulin;Gender;GLB;Glob;Glob%;Globul,Chemistry
+13969-1,Creatine kinase MB,CK MB SerPl-mCnc;Cardio;CK;CK 2;CK MB;CK-2;CKMB;CK-MB;CPK,Chemistry
+14196-0,Reticulocytes,Retics #;Heme;Number concentration;Number Concentration (count/vol);Polychromatophilic red cells;Retic;Retics;Reticulocyte;WB,CBC
+14805-6,Lactate dehydrogenase,LDH SerPl P to L-cCnc;2-Hydroxypropanoic acid;2-hydroxy-propionate;2-hydroxy-propionic acid;Dehydrog;Dehyrdogenase;L.D.H;Lact;Lactic acid,Chemistry
+14959-1,Albumin/Creatinine,Microalbumin/Creat Ur;Alb;CR;Crea;Creat;DL=20 mg/L;Left;Levo;MA,Chemistry
+15189-4,Immunoglobulin light chains kappa/Immunoglobulin light chains lambda,Kappa LC/Lambda Ser;Bence Jones protein;BJ Protein;BJP;Chain;Heme;Immune globulin;Immuno;Immunoglob,Chemistry
+15432-8,Testosterone free/Testosterone total,Testost Free MFr SerPl;FR;Non-protein bound;Percent;Serum or plasma;SR;Testo;Testos;Testost,Chemistry
+1649-3,Calcitriol,"1,25(OH)2D3 SerPl-mCnc;1,25(OH)2D3;1,25-Calcitriol;1,25-Dihydroxycholecalciferol;1,25-Dihydroxyvitamin D;1,25-Dihydroxyvitamin D3;Serum or plasma;SR;UniversalLabOrders",Chemistry
+17803-8,Plasma cells/Leukocytes,"Plasma Cells NFr Fld;BF;bod;Bodies;Body fluid;Body fluid, unsp;Cell;Cellularity;Fl",CBC
+17849-1,Reticulocytes/Erythrocytes,Retics/RBC NFr Auto;Discocytes;Erthrocyte;Erythrocyte;Heme;Percent;Polychromatophilic red cells;RBC;RBCS,CBC
+18481-2,Streptococcus pyogenes Ag,S pyo Ag Throat Ql;Antigen;Antigens;GAS;Group A Strep;ID;Infectious Disease;InfectiousDisease;Qual,Infectious
+18482-0,Yeast,Yeast Spec Ql Cult;Cult;Cultures;ID;Infectious Disease;InfectiousDisease;Misc;Miscellaneous;Other,Infectious
+19072-8,Calcium ionized^^adjusted to pH 7 4,Ca-I adj pH7.4 SerPl-sCnc;adj;adj pH7.4;Ca;Ca-I;Cal;Calcium active;Calcium free;Coagulation factor I,Chemistry
+19113-0,IgE,IgE SerPl-aCnc;Immune globulin E;Immunoglobulin E;Serum or plasma;SR;UniversalLabOrders,Chemistry
+19162-7,Varicella zoster virus Ab IgG,VZV IgG Ser Ql;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Chicken pox,Infectious
+30318-0,Base deficit,Base deficit Bld-sCnc;Base ex neg;BSE;Lung;Pulmonary;Pulmonology;Respiratory;WB;Whole blood,Chemistry
+19279-9,Benzodiazepines tested for,Benzodiaz Tested Ur Scn;Benz;Benzodiaz;Benzodiaz Tested;Benzodiazepine;Drugs;Identity or presence;Scn;Scr,Toxicology
+19343-3,Amphetamine,Amphet Ur Ql Scn;Addiction;Amph;Amphet;Amphetam;Amphetamines;Ampht;Drugs;Drugs of abuse,Toxicology
+3397-7,Cocaine,Cocaine Ur Ql;Addiction;Benzoylmethylecgonine;Coke;Crack;Drugs;Drugs of abuse;Ecgonine methyl ester benzoate;Illicit,Toxicology
+19659-2,Phencyclidine,PCP Ur Ql Scn;Addiction;Angel dust;Drugs;Drugs of abuse;Illicit;PCP;PotentialForAbuse;Qual,Toxicology
+2030-5,Carboxyhemoglobin/Hemoglobin total,COHgb MFr BldA;ABG;ART;Art bld;Art blood;Arterial;Arterial blood;Blood arterial;Carbon monoxide.hemoglobin,Chemistry
+20447-9,HIV 1 RNA,HIV1 RNA # SerPl NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;AIDS;Amplif;Amplification;Amplified;DNA probe;HIV type 1,Infectious
+20493-3,Histiocytes/Cells,"Histiocytes NFr Fld Micro;BF;bod;Bodies;Body fluid;Body fluid, unsp;Cell;Cellularity;Fl",CBC
+20521-1,Carboxy tetrahydrocannabinol,CarboxyTHC Ur Cfm-mCnc;11-nor-9-carboxy-delta-9-THC;11-nor-9-carboxy-THC;11-nor-delta-9-THC-9-COOH;9-carboxy-11-nor-delta-9-tetrahydrocannabinol;Addiction;Carboxytetrahydrocannabinol;CarboxyTHC;Carboxy-THC-delta-9,Toxicology
+20578-1,Vancomycin,Vancomycin SerPl-mCnc;c162;Drugs;ID;Infectious Disease;InfectiousDisease;Serum or plasma;SR;UniversalLabOrders,Toxicology
+2091-7,Cholesterol in VLDL,VLDLc SerPl-mCnc;Cardio;Chol;Choles;Cholest;Cholesterol total;Cholesterols;Heart Disease;Lipid,Chemistry
+2191-5,Dehydroepiandrosterone sulfate,DHEA-S SerPl-mCnc;adrenal dysfunction;DHEA;DHEAS;DHEA-S;DHEA-SO4;Prasterone;Serum or plasma;SO4-2,Chemistry
+24113-3,Hepatitis B virus core Ab IgM,HBV core IgM SerPl Ql IA;Aby;Antby;Anti;Antibodies;Antibody;anti-HBc;Autoantibodies;Autoantibody,Infectious
+2465-3,IgG,IgG SerPl-mCnc;Immune globulin G;Immunoglobulin G;Serum or plasma;SR;UniversalLabOrders,Chemistry
+2472-9,IgM,IgM SerPl-mCnc;Immune globulin M;Immunoglobulin M;Serum or plasma;SR;UniversalLabOrders,Chemistry
+2501-5,Iron binding capacity unsaturated,UIBC SerPl-mCnc;Bind;dTIBC;Fe;IBC;Serum or plasma;SR;TIBC;Total iron binding,Chemistry
+25514-1,Rubella virus Ab IgG,RUBV IgG Ser Ql;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Congenital rubella syndrome,Infectious
+2615-3,Methemoglobin/Hemoglobin total,MetHgb MFr BldA;ABG;ART;Art bld;Art blood;Arterial;Arterial blood;Blood arterial;Haemoglobin,Chemistry
+763-3,Neutrophils band form,Neuts Band # Bld Manual;Bands;bnd;N-Band;Neut;Neutr;Neutrophil;Neuts Band;Number concentration,CBC
+2714-4,Oxyhemoglobin/Hemoglobin total,OxyHgb MFr BldA;ABG;ART;Art bld;Art blood;Arterial;Arterial blood;Blood arterial;FO2Hb,Chemistry
+2761-5,Phenylketones,Phenylketones Bld Ql;Phenyl ketones;Qual;Screen;WB;Whole blood,Chemistry
+2990-0,Testosterone free+weakly bound,Testosterone.free+WB SerPl-mCnc;Associated;bnd;FR;Non-protein bound;Serum or plasma;SR;Testo;Testos,Chemistry
+30167-1,Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA,HPV I/H Risk 1 DNA Cvx Ql Probe+sig amp;Amplif;Amplification;Amplified;bDNA;Bdn-A;Branched Chain DNA;Cervix;Deoxyribonucleic acid,Infectious
+30433-7,Metamyelocytes,Metamyelocytes # Bld;Heme;Meta;Metamyelo;Metamyelocyte;Metamyelocyte%;Metas;Number concentration;Number Concentration (count/vol),CBC
+3050-2,Triiodothyronine resin uptake (T3RU),T3RU NFr SerPl;Percent;RT3U;Serum or plasma;SR;T uptake;T3 binding ratio;T3 RU;T3 uptake,Chemistry
+31017-7,Tissue transglutaminase Ab IgA,tTG IgA Ser-aCnc;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Celiac disease,Immunology
+31144-9,Thyroxine,T4 DBS-mCnc;DBS;Dried blood spot;Filter paper;FP;Levothyroxine;Levo-thyroxine;L-thyroxine;thyroid hormone,Chemistry
+3184-9,Activated clotting time,ACT Bld;ACT;Activ;Activated coagulation time;Clot;Clot tm;Clottable;Coagulation activated;Coagulation assay,Coagulation
+32146-3,Platelets large,Lg Platelets Bld Ql Smear;Lg Platelets;Platelet;Platelet adequacy;Platelet estimate;Platelt;Plt;Qual;Screen,CBC
+32215-6,Thyroxine free index,FT4I SerPl Calc-mCnc;Calc;Calculation;FR;FreeT4;FT4I;FTI;Levothyroxine;Levo-thyroxine,Chemistry
+32354-3,Erythrocyte/Arterial blood,Hct VFr BldA Calc;ABG;ART;Art bld;Art blood;Arterial;Arterial blood;Blood arterial;Calc,CBC
+32771-8,Carbon dioxide^^adjusted to patient's actual temperature,pCO2 temp adj BldA;ABG;adj;ART;Art bld;Art blood;Arterial;Arterial blood;Blood arterial,Chemistry
+33254-4,pH^^adjusted to patient's actual temperature,pH temp adj BldA;ABG;adj;ART;Art bld;Art blood;Arterial;Arterial blood;Blood arterial,Chemistry
+33800-4,DNA double strand Ab IgG,dsDNA IgG Ser-aCnc;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Deoxyribonucleic acid,Immunology
+33935-8,Cyclic citrullinated peptide Ab IgG,cCP IgG SerPl-aCnc;Aby;Antby;Anti;Antibodies;Antibody;Anti-CCP;Autoantibodies;Autoantibody,Immunology
+33944-0,Immunoglobulin light chains lambda free,Lambda LC Free SerPl-mCnc;Bence Jones protein;BJ Protein;BJP;Chain;FR;Heme;Immune globulin;Immuno,Chemistry
+34468-9,Clostridioides difficile toxin A+B,C diff Tox A+B Stl Ql IA;Bowel movement;C diff;C diff Tox;C diff Tox A;C diff Tox A+B;C difficile;Clostridium difficile;EIA,Infectious
+34473-9,Neutrophils vacuolated+Segmented,Neut Vac+Seg Bld Ql;Neut;Neut Vac+Seg;Neutr;Neutrophil;Neuts Vac;PMN;PNM;Qual,CBC
+34487-9,Influenza virus A RNA,FLUAV RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Avian influenza;Bird flu;DNA probe,Infectious
+3562-6,Digoxin free,Digoxin Free SerPl-mCnc;Cardio;DGXN;Drugs;FR;Heart Disease;Lanoxin;Non-protein bound;Serum or plasma,Toxicology
+36916-5,Immunoglobulin light chains kappa free,Kappa LC Free Ser-mCnc;Bence Jones protein;BJ Protein;BJP;Chain;FR;Heme;Immune globulin;Immuno,Chemistry
+39017-9,Mycobacterium tuberculosis tuberculin stimulated gamma interferon/Mitogen stimulated gamma interferon,M TB tuberc IFN-g/Mitogen IGNF Bld;Acid Fast;Acid Fast Bacilli;Acid fast bacillus;AFB;ID;IFN;IGRA;Infectious Disease,Infectious
+39528-5,Adenovirus DNA,HAdV DNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Adeno virus;Amplif;Amplification;Amplified;Deoxyribonucleic acid;DNA probe,Infectious
+40493-9,Methylenedioxymethamphetamine,MDMA SerPl Ql;Addiction;Drugs;Drugs of abuse;Ecstasy;Illicit;MDMA;PotentialForAbuse;Qual,Toxicology
+40646-2,Leukocytes other/Leukocytes,WBC Other NFr Bld Auto;Othr;Percent;WB;WBC;WBC Other;WBCs;White blood cell;White blood cells,CBC
+4086-5,Valproate,Valproate SerPl-mCnc;Depakene;Divalproex;Drugs;Serum or plasma;SR;UniversalLabOrders;VALP;Valproic acid,Toxicology
+40982-1,Influenza virus B RNA,FLUBV RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;FLUB;FLUBV,Infectious
+40988-8,Respiratory syncytial virus RNA,RSV RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;HRSV;ID,Infectious
+41284-1,Epithelial cells non-squamous,Non-sq Epi Cells #/area UrnS HPF;#/area;Cell;Cellularity;Epi;Epi Cells;Epith;Epithelia;Non-sq Epi Cells,Urine
+42254-3,Nuclear Ab,ANA Ser Ql IF;Aby;ACIF;ANA;ANF;Antby;Anti;Antibodies;Antibody,Immunology
+42757-5,Troponin I cardiac,Troponin I Bld-mCnc;Cardio;cTnI;Heart Disease;TnI;TrI;Trop I;Troponin;UniversalLabOrders,Chemistry
+43305-2,Neisseria gonorrhoeae rRNA,N gonorrhoea rRNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;GC;Gen-Probe,Infectious
+44429-9,Albumin/Globulin,Albumin/Glob SerPl Elph;Alb;Electro;Electrophhrs;Electrophrs;Elp;Elph;Ep;GLB,Chemistry
+4542-7,Haptoglobin,Haptoglob SerPl-mCnc;Haptoglob;HP;Hpt;Serum or plasma;SR;UniversalLabOrders,CBC
+46154-1,Trichomonas vaginalis rRNA,T vaginalis rRNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;Gen-Probe;Gyn,Infectious
+46740-7,Hemoglobin disorders,Hemoglobin disorders DBS-Imp;DBS;Dried blood spot;Filter paper;FP;Gyn;Gynecology;Haemoglobin;Hb,Chemistry
+47236-5,Treponema pallidum Ab IgG+IgM,T palldm IgG+IgM SerPl Ql IA;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;EIA,Infectious
+48159-8,Hepatitis C virus Ab Signal/Cutoff,HCV Ab s/co SerPl IA;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;co,Infectious
+48345-3,HIV 1+O+2 Ab,HIV 1+O+2 Ab SerPl Ql;Aby;AIDS;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody,Infectious
+48378-4,Immunoglobulin light chains kappa free/Immunoglobulin light chains lambda free,Kappa LC Free/Lambda Free Ser;Bence Jones protein;BJ Protein;BJP;Chain;FR;Heme;Immune globulin;Immuno,Chemistry
+48671-2,Prostate cancer risk,Prostate cancer risk Patient Est;Est;estimation;Risk,Chemistry
+48683-7,Streptococcus agalactiae DNA,Gp B Strep DNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Deoxyribonucleic acid;DNA probe;GBS,Infectious
+50552-9,Clarity,Clarity Ur Refract.auto;Refract;Refract.auto;Typ;UA;UR;URINALYSIS;Urn,Urine
+50957-0,Manual differential performed,Manual differential performed Bld Ql;Diff;Differl;Differn;Qual;Screen;WB;Whole blood,CBC
+5130-0,DNA double strand Ab,dsDNA Ab Ser-aCnc;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Deoxyribonucleic acid,Immunology
+51585-8,Other cells,Other cells # Bld Manual;Cell;Cellularity;Number concentration;Number Concentration (count/vol);Othr;WB;Whole blood,CBC
+51637-7,Plateletcrit,Plateletcrit VFr Bld;Pct;Percent;Platelet mass;plateletocrit;Volfr;Volume fraction;WB;Whole blood,CBC
+52969-3,Staphylococcus aureus methicillin resistant isolate,MRSA Nose Ql Cult;Celbenin;Cult;Cultures;Dimethoxypenicillin;ID;Infectious Disease;InfectiousDisease;Metacillin,Infectious
+53332-3,Crystals amorphous,Amorph Cry #/area Ur Comp Assist;#/area;AM;Amorph;Amorph Cry;Amorphic;Artificial Intelligence;Comp Assist;Crys,Urine
+53612-8,Urate,"Urate Fld-mCnc;BF;bod;Bodies;Body fluid;Body fluid, unsp;Fl;Fld;FLU",Chemistry
+54142-5,Candida sp DNA,Candida DNA Vag Ql Probe+sig amp;Amplif;Amplification;Amplified;bDNA;Bdn-A;Branched Chain DNA;Cand;Candidiasis,Infectious
+54143-3,Gardnerella vaginalis DNA,G vaginalis DNA Vag Ql Probe+sig amp;Amplif;Amplification;Amplified;bDNA;Bdn-A;Branched Chain DNA;Deoxyribonucleic acid;DNA probe,Infectious
+54144-1,Trichomonas vaginalis DNA,T vaginalis DNA Vag Ql Probe+sig amp;Amplif;Amplification;Amplified;bDNA;Bdn-A;Branched Chain DNA;Deoxyribonucleic acid;DNA probe,Infectious
+54247-2,Drug screen comment,Drug screen comment Ur-Imp;cmmt;cmnt;Com;Comm;Comments;Commt;Drugs;Impression,Toxicology
+546-2,Streptococcus beta-hemolytic,B-Hem Strep Throat Ql Cult;B-Hem Strep;Cult;Cultures;ID;Infectious Disease;InfectiousDisease;Qual;Screen,Infectious
+55420-4,Hours after meal,Hours p meal Time Patient;Hours p meal,Endocrine
+5768-7,Ascorbate,Vit C Ur Strip-mCnc;Ascorbic acid;c702;Dip stick;Dipstick;SmQn;UA;UR;URINALYSIS,Urine
+57719-7,Conditions tested for in this newborn screening study,Conditions tested for in NBS study DBS;Asympt;Asymptomatic;Conditions tested for in NBS study;DBS;Dried blood spot;Filter paper;FP;Ident,Chemistry
+5774-5,Calcium oxalate crystals,CaOx Cry UrnS Ql Micro;Ca;CaC2O4;Cal;CaOx;CaOx Cry;Crys;Cryst;Crystal,Urine
+582-7,Streptococcus agalactiae,Gp B Strep Genital Ql Cult;Cult;Cultures;GBS;Gen;Genital tract;Gp B Strep;Group B;Group B Strep,Infectious
+58445-8,Manual differential comment,Manual dif comment Bld-Imp;cmmt;cmnt;Com;Comm;Comments;Commt;Diff;Differl,CBC
+5909-7,Blood smear finding,Bld Smear Interp;Heme;Identity or presence;smears;WB;Whole blood,CBC
+59420-0,Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA,HPV I/H Risk 4 DNA Cvx Ql Probe+sig amp;Amplif;Amplification;Amplified;bDNA;Bdn-A;Branched Chain DNA;Cervix;Deoxyribonucleic acid,Infectious
+64084-7,Mycobacterium tuberculosis stimulated gamma interferon release by CD4+ T-cells^^corrected for background,M TB IFN-g CD4+ bckgrnd cor Bld-aCnc;Acid Fast;Acid Fast Bacilli;Acid fast bacillus;AFB;bckgrd cor;Cell;Cellularity;Helper T cells,Infectious
+71693-6,Platelets reticulated/Platelets,Platelets.reticulated NFr Bld Auto;Immature platelets;Percent;Platelet;Platelt;Plt;RP;Thrb;Thrombocyte,CBC
+71773-6,Mycobacterium tuberculosis stimulated gamma interferon,M TB IFN-g Bld-Imp;Acid Fast;Acid Fast Bacilli;Acid fast bacillus;AFB;ID;IFN;IGRA;Impression,Infectious
+71774-4,Mitogen stimulated gamma interferon^^corrected for background,Mitogen IGNF bckgrd cor Bld-aCnc;bckgrd cor;ID;IFN;IGRA;Infectious Disease;InfectiousDisease;Lung;Mitogen IGNF,Infectious
+71776-9,Gamma interferon background,Gamma interferon background Bld IA-aCnc;EIA;ELFA;ELISA;Enzyme immunoassay;IAA;ID;IFN;Infectious Disease,Infectious
+72268-6,Streptococcus pyogenes exotoxin B speB gene,S pyogenes speB Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;GAS;Group A Strep,Infectious
+728-6,Hypochromia,Hypochromia Bld Ql Smear;Hypochro;Hypochromic;Qual;Screen;WB;Whole blood,CBC
+72888-1,3-epi-25-Hydroxyvitamin D3/25-hydroxyvitamin D total,3-epi-25(OH)D3/25-OH Vit D MFr SerPl;25-OH Vit D;3-epi-25(OH)D3;3-epi-25-Hydroxy vitamin D3;C-3 epimer of 25OHD3;Dextro;III;Percent;Serum or plasma,Chemistry
+733-6,Lymphocytes variant,Variant Lymphs Bld Ql Smear;Atypical lymphocytes;Lymp;Lymph;Lympho;Lymphocyte;Lymphs;Lymphs%;Qual,CBC
+735-1,Lymphocytes variant/Leukocytes,Variant Lymphs NFr Bld Manual;Atypical lymphocytes;Lymp;Lymph;Lympho;Lymphocyte;Lymphs;Lymphs%;Percent,CBC
+73752-8,Reagin Ab & Treponema pallidum Ab IgG & IgM,Reagin+T pallidum IgG+IgM SerPl-Imp;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;ID,Infectious
+738-5,Macrocytes,Macrocytes Bld Ql Smear;Macrocyte;Macrocytosis;Macros;Qual;Screen;WB;Whole blood,CBC
+741-9,Microcytes,Microcytes Bld Ql Smear;Microcyte;Microcytosis;Qual;Screen;WB;Whole blood,CBC
+7790-9,Burr cells,Burr Cells Bld Ql Smear;Cell;Cellularity;Echinocyte;Echinocytes;Erythrocytes.crenated;Qual;Screen;Sea urchin cells,CBC
+7791-7,Dacryocytes,Dacryocytes Bld Ql Smear;Dacrocyte;Dacrocytes;Dacryocyte;Qual;Screen;Tear drops;Teardrop cells;Teardrops,CBC
+7792-5,Dohle body,Dohle Bod Bld Ql Smear;bod;Bodies;Qual;Screen;WB;Whole blood,CBC
+7798-2,Smudge cells,Smudge Cells Bld Ql Smear;Basket cells;Cell;Cellularity;Gumprecht shadows;Qual;Screen;WB;Whole blood,CBC
+800-3,Schistocytes,Schistocytes Bld Ql Smear;Fragmented cells;Qual;Schisto;Schistocyte;Screen;WB;Whole blood,CBC
+803-7,Toxic granules,Toxic Granules Bld Ql Smear;Granule;Qual;Screen;Toxic granulation;WB;Whole blood,CBC
+8099-4,Thyroperoxidase Ab,Thyroperoxidase Ab SerPl-aCnc;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Iodide peroxidase,Immunology
+8246-1,Amorphous sediment,Amorph Sed UrnS Ql Micro;AM;Amorph;Amorph Sed;Amorphic;Qual;Screen;UA;UR,Urine
+88517-8,Mycobacterium tuberculosis stimulated gamma interferon release by CD4+ and CD8+ T-cells^^corrected for background,M TB IFN-g CD4+CD8+ bckgrnd cor Bld-aCnc;Acid Fast;Acid Fast Bacilli;Acid fast bacillus;AFB;bckgrd cor;Cell;Cellularity;Helper T cells,Infectious
+94505-5,SARS coronavirus 2 Ab IgG,SARS-CoV-2 IgG SerPl IA-aCnc;2019 Novel Coronavirus;2019-nCoV;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies,Infectious
+95209-3,SARS coronavirus+SARS coronavirus 2 Ag,SARS-CoV+SARS-CoV-2 Ag Resp Ql IA.rapid;2019 Novel Coronavirus;2019-nCoV;Antigen;Antigens;Breathing;Corona virus;COVID19;COVID-19,Infectious
+9643-8,Creatine kinase MM/Creatine kinase total,CK MM CFr SerPl;Cardio;Catalytic Fraction;CK;CK 3;CK MM;CK-MM;CPK;Creatine phosphokinase,Chemistry
+10535-3,Digoxin,Digoxin SerPl-mCnc;Cardio;DGXN;Drugs;Heart Disease;Lanoxin;Serum or plasma;SR;UniversalLabOrders,Toxicology
+10704-5,Ova & parasites,O+P Stl Micro;Bowel movement;Faecal;Faeces;Fecal;Feces;Gastro;Gastroenterology;GI,Infectious
+12454-5,Urate crystals amorphous,Amorph Urate Cry UrnS Ql Micro;AM;Amorph;Amorph Cry;Amorph Urate Cry;Amorphic;Crys;Cryst;Crystal,Urine
+12841-3,Prostate specific Ag free/Prostate specific Ag total,PSA Free MFr SerPl;fPSA;FR;Genitourinary;GU;Kallikrein 3;Non-protein bound;Oncology;P-30 antigen,Chemistry
+12851-2,Protein pattern,Prot Pattern SerPl Elph-Imp;Electro;Electrophhrs;Electrophrs;Elp;Elph;Ep;Impression;Impression/interpretation of study,Chemistry
+13499-9,HIV 1 Ab band pattern,HIV1 Ab Patrn Ser IB-Imp;Ab Patrn;Aby;AIDS;Antby;Anti;Antibodies;Antibody;Autoantibodies,Infectious
+14334-7,Lithium,Lithium SerPl-sCnc;Drugs;Eskalith;Li;Lithane;Serum or plasma;SR;UniversalLabOrders,Toxicology
+14634-0,C reactive protein,CRP Titr SerPl;CRP;Dilution factor;Dilution Factor (Titer);Prot;Reac;React;Serum or plasma;SmQn,Chemistry
+1557-8,Glucose^post CFst,Glucose p fast BldV-mCnc;After;Bld ven;Bld venous;Blood - venous;Blood ven;Blood venus;Calorie Fast;Fast,Endocrine
+16137-2,Centromere Ab,Centromere Ab Ser Ql;Aby;ACA;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody,Immunology
+16235-4,Methamphetamine,Methamphet Ur Cfm-mCnc;Addiction;Cfm;CNFR;CNFRM;Conf;Confirmation;Confirmatory;Desoxyn,Toxicology
+16251-1,Morphine,Morphine Ur Cfm-mCnc;Addiction;c260;Cfm;CNFR;CNFRM;Conf;Confirmation;Confirmatory,Toxicology
+16998-7,HYDROmorphone,HYDROmorphone Ur Cfm-mCnc;Addiction;Cfm;CNFR;CNFRM;Conf;Confirmation;Confirmatory;Dihydromorphinone,Toxicology
+1711-1,Acid phosphatase,ACP Bld-cCnc;Ac Phos;Acd;Acid phosphatase.total;Acids;AcP;Phos;Phosphtase;WB,Chemistry
+17395-5,oxyMORphone,oxyMORphone Ur Cfm-mCnc;14-Hydroxydihydromorphinone;Addiction;Cfm;CNFR;CNFRM;Conf;Confirmation;Confirmatory,Toxicology
+1761-6,Aldolase,Aldolase SerPl-cCnc;Fructose Aldolase;Fructose Biphosphate Aldolase;Serum or plasma;SR;UniversalLabOrders,Chemistry
+1823-4,Alpha tocopherol,A-Tocopherol Vit E SerPl-mCnc;Alfa;A-Tocopherol Vit E;Serum or plasma;SR;Tocopherols;UniversalLabOrders;Vit E;Vitamin E,Chemistry
+18314-5,Morphology,Morphology Bld-Imp;Impression;Impression/interpretation of study;Impressions;Interp;Interpretation;Narrative;Report;WB,CBC
+18396-2,HIV 1 p24 Ag,HIV1 p24 Ag SerPl Ql IA;AIDS;Antigen;Antigens;EIA;ELFA;ELISA;Enzyme immunoassay;HIV type 1,Infectious
+19159-3,Urinalysis specimen collection method,Urn Spec Collect Meth Ur;Coll;Collect;Collected;Identity or presence;Meth;Method of;Spec;UA,Urine
+19218-7,Oxygen content,O2 Ct BldA-sCnc;ABG;ART;Art bld;Art blood;Arterial;Arterial blood;Blood arterial;ctO2,Chemistry
+19235-1,Base excess^^standard,Base excess std BldA Calc-sCnc;ABE;ABG;ART;Art bld;Art blood;Arterial;Arterial blood;Base ex,Chemistry
+19312-8,Tricyclic antidepressants,Tricyclics Ur Ql Scn;Antidepres;Antidepressant;Drugs;Qual;Scn;Scr;Screen;Scrn,Toxicology
+19415-9,Tetrahydrocannabinol,THC Ur Ql Scn;Delta(9)-THC;Delta-9-tetrahydrocannabinol;Dronabinol;Drugs;Marijuana;Nabilone;Qual;Scn,Toxicology
+19429-0,Propoxyphene,Propoxyph Ur Ql Scn;Addiction;Algaphan;Cosalgesic;Cotonal-65;Darvon;Depronal;Dextrogesic;Dextropropoxyphene,Toxicology
+1952-1,Beta-2-Microglobulin,B2 Microglob SerPl-mCnc;B2 Microglob;b2-M;Heme;II;Microglob;Serum or plasma;SR;UniversalLabOrders,Chemistry
+19644-4,oxyCODONE cutoff,oxyCODONE CtO Ur Scn-mCnc;CtO;Drugs;Lortab;OxyContin;Percocet;Percodan;Scn;Scr,Toxicology
+1986-9,C peptide,C peptide SerPl-mCnc;Connecting peptide of insulin;Pept;Pro-insulin c peptide;Serum or plasma;SR;UniversalLabOrders,Chemistry
+20448-7,Insulin,Insulin SerPl-aCnc;HUM;Humulin;Insul;Lente;NPH;Semilente;Serum or plasma;Sliding,Chemistry
+2064-4,Ceruloplasmin,Ceruloplasmin SerPl-mCnc;Caeruloplasmin;Copper oxidase;Cp;Ferroxidase;Serum or plasma;SR;UniversalLabOrders,Chemistry
+20966-8,Staphylococcus sp,Staphylococcus Spec Cult;Cult;Cultures;ID;Identity or presence;Infectious Disease;InfectiousDisease;Misc;Miscellaneous,Infectious
+2236-8,Calciferol,Vitamin D2 SerPl-mCnc;Activated ergosterol;C28H43OH;Ercalciol;Ergocalciferol;Pro vitamin D;Serum or plasma;SR;UniversalLabOrders,Chemistry
+23826-1,Bordetella pertussis DNA,B pert DNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;B pert;B pertussis;Deoxyribonucleic acid,Infectious
+24027-5,Streptococcus pneumoniae Ag,S pneum Ag Ur Ql;Antigen;Antigens;ID;Infectious Disease;InfectiousDisease;Pneu;pneum;Pneumo,Infectious
+29247-4,Sirolimus,Sirolimus Bld-mCnc;Drugs;Rapamune;Rapamycin;SRL;UniversalLabOrders;WB;Whole blood,Toxicology
+29257-3,Mycoplasma pneumoniae DNA,M pneumo DNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Deoxyribonucleic acid;DNA probe;Enzootic pneumonia,Infectious
+29908-1,Parainfluenza virus 1 RNA,HPIV1 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;HPIV;HPIV1,Infectious
+29909-9,Parainfluenza virus 2 RNA,HPIV2 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;HPIV;HPIV2,Infectious
+29910-7,Parainfluenza virus 3 RNA,HPIV3 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;HPIV;HPIV3,Infectious
+30079-8,Renal tubular casts,Renal Tub Casts #/area Ur Micro;#/area;Cast;Number areic;Renal Tub Casts;UA;UR;URINALYSIS;Urn,Urine
+30446-9,Myelocytes,Myelocytes # Bld;Heme;Myel;Myelo;Myelocyte;Number concentration;Number Concentration (count/vol);WB;Whole blood,CBC
+3095-7,Urea nitrogen,UUN Ur-mCnc;Blood urea nitrogen;Nit;UA;UN;UniversalLabOrders;UR;Urn;UUN,Chemistry
+31545-7,Nuclear Ab IgG,Nuclear IgG Ser Ql;Aby;ANA;ANA IgG;ANF;Antby;Anti;Antibodies;Antibody,Immunology
+31592-9,Ribosomal P Ab,Ribosomal P Ab Ser Ql;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;P prime,Immunology
+31627-3,Smith extractable nuclear Ab,ENA SM Ab Ser Ql;Aby;ANA;ANF;Antby;Anti;Antibodies;Antibody;Antinuclear antibody,Immunology
+31628-1,Smith extractable nuclear Ab+Ribonucleoprotein extractable nuclear Ab,ENA SM+RNP Ab Ser Ql;Aby;ANA;ANF;Antby;Anti;Antibodies;Antibody;Antinuclear antibody,Immunology
+3182-3,Cardiolipin Ab IgM,Cardiolipin IgM Ser IA-aCnc;Aby;ACA;aCL;Antby;Anti;Antibodies;Antibody;Anticardiolipin,Coagulation
+31843-6,Helicobacter pylori Ag,H pylori Ag Stl Ql;Antigen;Antigens;Bowel movement;C pylori;Campylobacter pylori;Faecal;Faeces;Fecal,Infectious
+32218-0,Cyclic citrullinated peptide Ab,cCP Ab Ser IA-aCnc;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;cCP,Immunology
+32680-1,Granular casts fine,Fine Gran Casts #/area UrnS LPF;#/area;Cast;Fine Gran Casts;Gran Casts;Number areic;UA;UR;URINALYSIS,Urine
+33220-5,Transitional cells,Trans Cells #/area Ur Comp Assist;#/area;Artificial Intelligence;Cell;Cellularity;Comp Assist;Number areic;Trans Cells;UA,Urine
+33393-0,Granular casts coarse,Coarse Gran Casts #/area UrnS LPF;#/area;Cast;Coarse Gran Casts;Gran Casts;Number areic;UA;UR;URINALYSIS,Urine
+34645-2,Chlamydophila pneumoniae DNA,C pneum DNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;C pneum;C pneumo;C pneumoniae,Infectious
+34712-0,Clostridioides difficile,C diff Stl Ql;Bowel movement;C diff;C difficile;Clostridium difficile;Faecal;Faeces;Fecal;Feces,Infectious
+35505-7,Lipoprotein beta subparticle,LDL SerPl;LDL;LDL phenotype;Lip;Lipoprot;Lipoproteins;Low density lipoproteins;LP;Serum or plasma,Chemistry
+38917-1,Human metapneumovirus RNA,hMPV RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;hMPV;ID,Infectious
+3968-5,Phenytoin,Phenytoin SerPl-mCnc;DI-HYDAN;Dilantin;Dilj;Diphenylhydantoin;DPH;Drugs;Epanutin;Fenantoin,Toxicology
+40991-2,Rhinovirus+Enterovirus RNA,RV+EV RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;Entero virus;EV,Infectious
+41003-5,Human coronavirus 229E RNA,HCoV 229E RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Corona virus;DNA probe;HCoV,Infectious
+41005-0,Human coronavirus NL63 RNA,HCoV NL63 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Corona virus;DNA probe;HCoV,Infectious
+41009-2,Human coronavirus OC43 RNA,HCoV OC43 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Corona virus;DNA probe;HCoV,Infectious
+41010-0,Parainfluenza virus 4 RNA,HPIV4 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;DNA probe;HPIV;HPIV4,Infectious
+41654-5,Erythrocyte/Venous blood,Hct VFr BldV Calc;Bld ven;Bld venous;Blood - venous;Blood ven;Blood venus;Calc;Calculation;Discocyte,CBC
+45194-8,Choriogonadotropin intact+Beta subunit,HCG Intact+B SerPl-aCnc;CG;Choriogonadotropins total;Chorionic gonadotropin;Chorionic gonadotropin.intact;HCG;HCG Intact;HCG Intact+B;Human chorionic gonadotropin,Chemistry
+45323-3,Mycobacterium tuberculosis tuberculin stimulated gamma interferon,M TB tuberc IFN-g Bld Ql;Acid Fast;Acid Fast Bacilli;Acid fast bacillus;AFB;ID;IFN;IGRA;Infectious Disease,Infectious
+45335-7,Bacteria identification test,Bacteria ID test Islt Ql Cult;Bact;Bacteria ID test;Cult;Cultures;ID;Infectious Disease;InfectiousDisease;Islt,Infectious
+46986-6,Cholesterol in VLDL 3,VLDL3c SerPl-mCnc;Cardio;Chol;Choles;Cholest;Cholesterol total;Cholesterols;Heart Disease;III,Chemistry
+47000-5,Candida sp rRNA,Candida rRNA Vag Ql Probe;Cand;Candidiasis;DNA probe;Genital vaginal;Gyn;Gynecology;ID;Infectious Disease,Infectious
+47419-7,Varicella zoster virus Ab,VZV Ab Ser IA-aCnc;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Chicken pox,Infectious
+49041-7,Testosterone,Testost SerPl DL<=1.0 ng/dL-mCnc;DL&lt;=1.0 ng/dL;Nasogastric;Serum or plasma;SR;Testo;Testos;Testost,Chemistry
+49524-2,Influenza virus A H3 RNA,FLUAV H3 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Avian influenza;Bird flu;DNA probe,Infectious
+72493-0,Cytomegalovirus DNA,CMV DNA SerPl NAA+probe-aCnc;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;CMV;Cytomegalo virus;Cytomgal,Infectious
+50233-6,Leukocyte clumps,WBC clumps #/area UrnS Auto;#/area;Leukocytes;Number areic;UA;UR;URINALYSIS;Urine sediment;Urn,Urine
+5351-2,Sjogrens syndrome-A extractable nuclear Ab,ENA SS-A Ab Ser Ql IA;Aby;ANA;ANF;Antby;Anti;Antibodies;Antibody;Antinuclear antibody,Immunology
+5353-8,Sjogrens syndrome-B extractable nuclear Ab,ENA SS-B Ab Ser Ql IA;Aby;ANA;ANF;Antby;Anti;Antibodies;Antibody;Antinuclear antibody,Immunology
+53797-7,Neutrophils immature/Leukocytes,Neutrophils.immature NFr Bld;Imm;Immat;Neut;Neutr;Neutrophil;Percent;PMN;PNM,CBC
+53962-7,Alpha-1-Fetoprotein tumor marker,AFP-TM SerPl-mCnc;AFP;AFP-TM;Alfa;Alpha fetoprotein;Alphafetoprotein;Feto;Mark;Oncology,Chemistry
+53963-5,Blood,Blood Ur Ql Visual;Qual;Screen;UA;UR;URINALYSIS;Urn,Urine
+55465-9,Influenza virus A H1 2009 pandemic RNA,FLUAV H1 2009 pand RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Avian influenza;Bird flu;DNA probe,Infectious
+55805-6,cycloSPORINE,cycloSPORINE Bld LC/MS/MS-mCnc;Ciclosporin;Ciclosporine;CsA;Cyclosporin a;Cyclosporins;Drugs;Gengraf;Neoral,Toxicology
+5631-7,Copper,Copper SerPl-mCnc;Cu;Drugs;Serum or plasma;SR;UniversalLabOrders,Toxicology
+5782-8,Crystals,Crystals UrnS Micro;Crys;Cryst;Crystal;Identity or presence;UA;UR;URINALYSIS;Urine sediment,Urine
+5793-5,Granular casts,Gran Casts #/area UrnS LPF;#/area;Cast;Gran Casts;Number areic;UA;UR;URINALYSIS;Urine sediment,Urine
+5862-8,Influenza virus A Ag,FLUAV Ag Spec Ql IA;Antigen;Antigens;Avian influenza;Bird flu;EIA;ELFA;ELISA;Enzyme immunoassay,Infectious
+5866-9,Influenza virus B Ag,FLUBV Ag Spec Ql IA;Antigen;Antigens;EIA;ELFA;ELISA;Enzyme immunoassay;FLUB;FLUBV,Infectious
+61037-8,Alpha hydroxyalprazolam,A-OH Alpraz Spec Ql;Alfa;Alpha hydroxy alprazolam;Alprozolam metabolite;A-OH Alpraz;Drugs;Hydroxy alprazolam;Hydroxyalpraz;Misc,Toxicology
+61425-5,Noroxycodone,Noroxycodone Ur Cfm-mCnc;Cfm;CNFR;CNFRM;Conf;Confirmation;Confirmatory;Drugs;GCMS,Toxicology
+62423-9,Human coronavirus HKU1 RNA,HCoV HKU1 RNA Spec Ql NAA+probe;3 Self-Sustaining Sequence Replication;3SR SR;Amplif;Amplification;Amplified;Corona virus;DNA probe;HCoV,Infectious
+64013-6,Escherichia coli shiga-like toxin 1 & 2,E coli SXT1+2 Stl IA;Bowel movement;E coli;E coli shiga-like toxin 1+2;E coli SLTEC;E coli SXT;E coli SXT1;E coli SXT1+2;EHEC,Infectious
+6437-8,Influenza virus A+B Ag,FLUAV+FLUBV Ag Spec Ql IA;Antigen;Antigens;Avian influenza;Bird flu;EIA;ELFA;ELISA;Enzyme immunoassay,Infectious
+68380-5,Chromatin Ab,Chromatin Ab SerPl Ql;Aby;Antby;Anti;Antibodies;Antibody;Autoantibodies;Autoantibody;Qual,Immunology
+721-1,Hemoglobin free,Hgb Free Plas-mCnc;FR;Haemoglobin;Hb;Hgb;Hgb Free;Non-protein bound;UniversalLabOrders,CBC
+7796-6,Platelet clump,Platelet Clump Bld Ql Smear;Platelets;Platelt;Plt;Qual;Screen;Thrombocyte;Thrombocytes;WB,CBC
+8076-2,Jo-1 extractable nuclear Ab,ENA Jo1 Ab Ser Ql;Aby;ANA;ANF;Antby;Anti;Antibodies;Antibody;Antinuclear antibody,Immunology
+8091-1,Ribonucleoprotein extractable nuclear Ab,ENA RNP Ab Ser Ql;Aby;ANA;ANF;Antby;Anti;Antibodies;Antibody;Antinuclear antibody,Immunology
+8092-9,SCL-70 extractable nuclear Ab,ENA Scl70 Ab Ser Ql;Aby;ANA;ANF;Antby;Anti;Antibodies;Antibody;Antinuclear antibody,Immunology
+83112-3,Prostate specific Ag,PSA SerPl IA-mCnc;Antigen;Antigens;EIA;ELFA;ELISA;Enzyme immunoassay;Genitourinary;GU,Chemistry

@@ -1,0 +1,36 @@
+# --- Core API ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# --- Database ---
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.10  # Postgres driver — needed only if DATABASE_URL points at
+                         # Postgres (e.g. a free Neon/Supabase instance for deployment
+                         # persistence). SQLite (the local default) doesn't need this.
+
+# --- PDF Extraction (digital / text-based PDFs only, no OCR) ---
+pdfplumber==0.11.4
+pymupdf==1.24.10
+
+# --- NLP / structured parsing ---
+spacy==3.7.5
+# after install run: python -m spacy download en_core_web_sm
+
+# --- RAG ---
+sentence-transformers==3.1.1
+faiss-cpu==1.8.0.post1
+numpy==1.26.4
+
+# --- Translation (free, no API key) ---
+deep-translator==1.11.4
+
+# --- LLM client (works with any OpenAI-compatible endpoint incl. free providers) ---
+openai==1.51.0
+httpx==0.27.2
+
+# --- Utilities ---
+python-dotenv==1.0.1
+tenacity==9.0.0

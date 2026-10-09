@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+medreport.db
+storage/uploads/*
+storage/vector_store/*
+!storage/uploads/.gitkeep
+!storage/vector_store/.gitkeep
+.venv/
+venv/
