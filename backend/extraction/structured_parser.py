@@ -67,11 +67,11 @@ _HEADER_PATTERNS: dict[str, list[str]] = {
         + _NAME_CHARS + r")" + _NEXT_LABEL,
     ],
     "patient_age": [
-        r"^[ \t]*age[ \t]*[:\-][ \t]*(\d{1,3}[ \t]*(?:y|yrs|years)?)\b",
+        r"\bage[ \t]*[:\-][ \t]*(\d{1,3}[ \t]*(?:y|yrs|years)?)\b",
         r"\bSex[ \t]*/[ \t]*Age[ \t]*[:\-][ \t]*[A-Za-z]+[ \t]*/[ \t]*(\d{1,3}[ \t]*(?:Y|yrs|years)?)\b",
     ],
     "patient_sex": [
-        r"^[ \t]*(?:sex|gender)[ \t]*[:\-][ \t]*(male|female|other|m|f)\b",
+        r"\b(?:sex|gender)[ \t]*[:\-][ \t]*(male|female|other|m|f)\b",
         r"\bSex[ \t]*/[ \t]*Age[ \t]*[:\-][ \t]*(male|female|other)\b",
     ],
     "hospital_name": [
@@ -136,6 +136,12 @@ _PARAM_LINE = re.compile(
             (?P<range>{_RANGE})\s*\)?)?
     """,
     re.IGNORECASE | re.VERBOSE,
+)
+
+# Row with NO result printed (interim / pending report): "GLUCOSE, FASTING   mg/dL   70 - 100"
+_BLANK_ROW = re.compile(
+    rf"^(?P<name>[A-Za-z][A-Za-z0-9 /(),;.\-]{{1,60}}?)\s{{2,}}(?P<unit>{_UNIT})\s+(?P<range>{_RANGE})\s*$",
+    re.IGNORECASE,
 )
 
 # A range label like "Low: <40" or "Optimal: <100" tells us which band a value falls
@@ -220,6 +226,20 @@ def extract_lab_parameters(text: str) -> list[ExtractedParameter]:
         line = raw_line.strip()
         if len(line) < 4 or line.startswith(("•", "*")) or line.endswith(("-", ",")):
             continue
+        b = _BLANK_ROW.match(raw_line.strip())
+        if b and not re.search(r"\s\d+\.?\d*$", b.group("name")):
+            bname = _clean_name(b.group("name"))
+            bl = match_test_name(bname)
+            if bl.verified and _looks_like_test_name(bname) and bname.lower() not in seen_names:
+                seen_names.add(bname.lower())
+                results.append(ExtractedParameter(
+                    test_name_raw=bname, value="Not reported", unit=b.group("unit"),
+                    reference_range=b.group("range"), status="Unknown",
+                    test_name_normalized=bl.normalized_name, loinc_code=bl.loinc_code,
+                    loinc_verified=True, category=bl.category))
+            continue
+        if b and re.search(r"\s\d+\.?\d*$", b.group("name")):
+            pass  # has a real value glued in the name group -> let the normal parser handle it
         m = _PARAM_LINE.match(line)
         if not m:
             continue
@@ -296,9 +316,11 @@ def guess_report_type(text: str, parameters: list[ExtractedParameter]) -> str:
         "Prescription": [r"\bprescription\b", r"take 1 tablet"],
     }
     for label, pats in keyword_map.items():
-        if any(re.search(p, text_lower) for p in pats):
-            if not [p for p in parameters if p.loinc_verified] or label in ("Discharge Summary", "Prescription"):
-                return label
+        hits = sum(len(re.findall(p, text_lower)) for p in pats)
+        in_title = any(re.search(p, text_lower[:800]) for p in pats)
+        # a passing mention ("correlate with ECG") must not decide the report type
+        if hits and (in_title or hits >= 3) and not [p for p in parameters if p.loinc_verified]:
+            return label
 
     verified = [p for p in parameters if p.loinc_verified]
     counts: dict[str, int] = {}
@@ -314,13 +336,10 @@ def guess_report_type(text: str, parameters: list[ExtractedParameter]) -> str:
     other = {p.category for p in verified if p.category and p.category not in _PANEL_OF_CATEGORY}
     panels = len(counts) + len(other)
 
-    if panels >= 3:
+    if panels >= 2:
         return "Multi-panel Health Check-up"
-    if len(counts) >= 1 and panels == 1:
+    if len(counts) == 1:
         return next(iter(counts))
-    if panels == 2 and counts:
-        return " + ".join(sorted(counts, key=counts.get, reverse=True)[:2]) if len(counts) == 2 else \
-            max(counts, key=counts.get) + " (with other tests)"
     if "urine" in text_lower and not verified:
         return "Urine Report"
     return "General / Unclassified"
