@@ -53,27 +53,60 @@ class ExtractedParameter:
 # ---------------------------------------------------------------------------
 # Header field extraction (regex, label-anchored — deliberately conservative)
 # ---------------------------------------------------------------------------
+# Every pattern is anchored to the START of a line (so "For Diabetic Patient:"
+# can never be read as a patient label) and uses [ \t] instead of \s so a match
+# can never run across a line break. Captures stop at the next label.
+_NEXT_LABEL = (
+    r"(?=\s+(?:Lab\s*Id|Client|Age|Sex|Gender|UHID|Reg|Registration|Ref|Sample|Collected|"
+    r"Location|Passport|Status|Approved|Printed|Process|Phone|Mobile|Date)\b|\s{2,}|\s*$)"
+)
+_NAME_CHARS = r"[A-Za-z][A-Za-z .'\-]{1,58}?"
 _HEADER_PATTERNS: dict[str, list[str]] = {
-    "patient_name": [r"(?:patient\s*name|name\s*of\s*patient|patient)\s*[:\-]\s*([A-Za-z .]{2,60})"],
-    "patient_age": [r"age\s*[:\-]\s*(\d{1,3}\s*(?:y|yrs|years)?)"],
-    "patient_sex": [r"(?:sex|gender)\s*[:\-]\s*(male|female|other|m|f)\b"],
-    "hospital_name": [r"(?:hospital|lab(?:oratory)?|diagnostic\s*center|clinic)\s*[:\-]\s*([A-Za-z0-9 .,&'-]{3,80})"],
-    "doctor_name": [r"(?:ref(?:erred)?\.?\s*(?:by|dr\.?)|doctor|consultant|physician)\s*[:\-]\s*(?:dr\.?\s*)?([A-Za-z .]{2,60})"],
-    "sample_date": [r"(?:sample\s*date|collected\s*on|report\s*date|date)\s*[:\-]\s*(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})"],
+    "patient_name": [
+        r"^[ \t]*(?:patient[ \t]*name|name[ \t]*of[ \t]*patient|name|patient)[ \t]*[:\-][ \t]*("
+        + _NAME_CHARS + r")" + _NEXT_LABEL,
+    ],
+    "patient_age": [
+        r"^[ \t]*age[ \t]*[:\-][ \t]*(\d{1,3}[ \t]*(?:y|yrs|years)?)\b",
+        r"\bSex[ \t]*/[ \t]*Age[ \t]*[:\-][ \t]*[A-Za-z]+[ \t]*/[ \t]*(\d{1,3}[ \t]*(?:Y|yrs|years)?)\b",
+    ],
+    "patient_sex": [
+        r"^[ \t]*(?:sex|gender)[ \t]*[:\-][ \t]*(male|female|other|m|f)\b",
+        r"\bSex[ \t]*/[ \t]*Age[ \t]*[:\-][ \t]*(male|female|other)\b",
+    ],
+    "hospital_name": [
+        r"^[ \t]*(?:hospital|diagnostic[ \t]*cent(?:er|re)|clinic|laboratory)[ \t]*(?:name)?[ \t]*[:\-][ \t]*"
+        r"([A-Za-z0-9][A-Za-z0-9 .,&'\-]{2,78}?)" + _NEXT_LABEL,
+    ],
+    "doctor_name": [
+        r"^[ \t]*(?:ref(?:erred)?\.?[ \t]*(?:by|dr\.?)|doctor|consultant|physician)[ \t]*[:\-][ \t]*"
+        r"(?:dr\.?[ \t]*)?(" + _NAME_CHARS + r")" + _NEXT_LABEL,
+    ],
+    "sample_date": [
+        r"(?:^[ \t]*(?:sample[ \t]*date|report[ \t]*date|date)|\bcollected[ \t]*on)[ \t]*[:\-][ \t]*"
+        r"(\d{1,2}[/-](?:\d{1,2}|[A-Za-z]{3})[/-]\d{2,4})",
+    ],
+}
+
+# Words that mean the "value" we captured is really the next label, not a person/place.
+_BAD_HEADER_VALUES = {
+    "sample type", "sample", "lab id", "client name", "location", "status", "collected at",
+    "registration", "ref", "age", "sex", "unknown", "poor control",
 }
 
 
 def extract_patient_info(text: str) -> PatientInfo:
     info = PatientInfo()
-    lowered = text
     for field_name, patterns in _HEADER_PATTERNS.items():
         for pattern in patterns:
-            m = re.search(pattern, lowered, re.IGNORECASE)
-            if m:
-                value = m.group(1).strip().rstrip(",.")
-                if value:
-                    setattr(info, field_name, value)
-                break
+            m = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
+            if not m:
+                continue
+            value = m.group(1).strip().rstrip(",.:-").strip()
+            if not value or value.lower() in _BAD_HEADER_VALUES:
+                continue
+            setattr(info, field_name, value)
+            break
     return info
 
 
@@ -82,36 +115,101 @@ def extract_patient_info(text: str) -> PatientInfo:
 # ---------------------------------------------------------------------------
 # Matches lines like:
 #   "Hemoglobin        13.5   g/dL   13.0 - 17.0"
-#   "SGPT (ALT)  45 U/L  Normal: 7-56"
-#   "Creatinine: 1.1 mg/dL (0.6-1.3)"
+#   "Fasting Blood Sugar H 141.0 mg/dL 74 - 106"      (lab flag before the value)
+#   "WBC Count H10570 /cmm 4000 - 10000"              (flag glued to the value)
+#   "Cholesterol 189.0 mg/dL Desirable : <200"
+#   "CHOL/HDL Ratio 3.1 Up to 5.0"
+_UNIT = (
+    r"%|[A-Za-z0-9µμ^.]*/[A-Za-z0-9µμ^.]+|fL|fl|pg|mg|g|IU|U|sec|seconds|ratio|cells"
+)
+_RANGE = (
+    r"(?:\d+\.?\d*\s*[-–]\s*\d+\.?\d*"            # 13.0 - 17.0
+    r"|(?:up\s*to|upto|<=|>=|<|>|≤|≥)\s*\d+\.?\d*)"  # < 200, Up to 5.0
+)
 _PARAM_LINE = re.compile(
-    r"""^(?P<name>[A-Za-z][A-Za-z0-9 /()%.\-]{1,60}?)          # test name
-        [\s:]{1,4}
-        (?P<value>-?\d+\.?\d*)                                 # numeric value
-        \s*
-        (?P<unit>%|g/dL|mg/dL|U/L|IU/L|mmol/L|mEq/L|ng/mL|pg/mL|mIU/L|uIU/mL|/cumm|million/cumm|fL|cells/cumm|mm/hr)?
-        [\s,]*
-        (?:\(?\s*(?:normal|ref(?:erence)?|range)?\s*[:\-]?\s*
-           (?P<range>\d+\.?\d*\s*-\s*\d+\.?\d*)\s*\)?)?
+    rf"""^(?P<name>[A-Za-z][A-Za-z0-9 /()%.,\-]{{1,60}}?)
+         (?:[\s:]+(?P<flag>HH|LL|H|L)(?=\s|\d))?     # optional lab flag
+         [\s:]*
+         (?P<value>\d+\.?\d*)
+         (?:\s*(?P<unit>{_UNIT})(?=\s|$))?
+         (?:[\s,]*\(?\s*(?P<rlabel>[A-Za-z][A-Za-z ]{{0,24}})?\s*:?\s*
+            (?P<range>{_RANGE})\s*\)?)?
     """,
     re.IGNORECASE | re.VERBOSE,
 )
 
+# A range label like "Low: <40" or "Optimal: <100" tells us which band a value falls
+# in, NOT the normal range — only these labels introduce a true reference range.
+_NORMAL_LABELS = {"", "normal", "desirable", "optimal", "reference", "ref", "range", "normal range", "ref range"}
+
+# Lines that are page furniture, patient header, or prose — never a test result.
+_JUNK_NAME = re.compile(
+    r"\b(registration|printed|page|sample|approved|collected|passport|lab id|client|process|location|"
+    r"ref\.? ?id|status|reference|interval|authenticat|referred|scan|qr|phone|mobile|"
+    r"note|explanation|interference|borderline|desirable|optimal|control|diabetic|insufficiency|"
+    r"deficiency|stage|grade|risk|criteria|guideline|pre-diabetes|non-diabetes|diabetes:)\b",
+    re.IGNORECASE,
+)
+# Whole-name matches that are labels or risk bands rather than tests.
+_JUNK_EXACT = {
+    "age", "date", "sex", "gender", "id", "name", "high", "low", "normal", "very high", "result",
+    "test", "report", "adult", "child", "male", "female", "page", "time", "unit", "method",
+    "pre-diabetes", "non-diabetes", "diabetes", "optimal", "borderline", "borderline high",
+}
+_CITATION = re.compile(r"\b(et al|\d{4};\d+|j med|n engl|am j|diabetes care|\bpmid\b)", re.IGNORECASE)
+_METHOD_SUFFIX = re.compile(r"\s+(microscopic|calculated|derived|automated|manual)$", re.IGNORECASE)
+
+
+def _to_float(x: str) -> float | None:
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return None
+
 
 def _status_from_range(value: str | None, ref_range: str | None) -> str:
-    if not value or not ref_range:
+    v = _to_float(value) if value else None
+    if v is None or not ref_range:
         return "Unknown"
-    try:
-        v = float(value)
-        low_s, high_s = [x.strip() for x in ref_range.split("-")]
-        low, high = float(low_s), float(high_s)
-        if v < low:
-            return "Abnormal (Low)"
-        if v > high:
-            return "Abnormal (High)"
-        return "Normal"
-    except (ValueError, IndexError):
+    r = ref_range.strip().lower().replace("–", "-")
+    m = re.fullmatch(r"(\d+\.?\d*)\s*-\s*(\d+\.?\d*)", r)
+    if m:
+        low, high = float(m.group(1)), float(m.group(2))
+        return "Abnormal (Low)" if v < low else "Abnormal (High)" if v > high else "Normal"
+    m = re.fullmatch(r"(up\s*to|upto|<=|<|≤)\s*(\d+\.?\d*)", r)
+    if m:
+        lim = float(m.group(2))
+        strict = m.group(1) == "<"
+        return "Abnormal (High)" if (v >= lim if strict else v > lim) else "Normal"
+    m = re.fullmatch(r"(>=|>|≥)\s*(\d+\.?\d*)", r)
+    if m:
+        lim = float(m.group(2))
+        strict = m.group(1) == ">"
+        return "Abnormal (Low)" if (v <= lim if strict else v < lim) else "Normal"
+    return "Unknown"
+
+
+def _flag_status(flag: str | None) -> str:
+    if not flag:
         return "Unknown"
+    return "Abnormal (High)" if flag.upper().startswith("H") else "Abnormal (Low)"
+
+
+def _clean_name(name: str) -> str:
+    name = re.sub(r"\s+", " ", name).strip(" :-,")
+    prev = None
+    while prev != name:           # strip stacked suffixes
+        prev = name
+        name = _METHOD_SUFFIX.sub("", name).strip(" :-,")
+    return name
+
+
+def _looks_like_test_name(name: str) -> bool:
+    if not (2 <= len(name) <= 55) or len(name.split()) > 7:
+        return False
+    if name.lower() in _JUNK_EXACT or _JUNK_NAME.search(name) or _CITATION.search(name):
+        return False
+    return True
 
 
 def extract_lab_parameters(text: str) -> list[ExtractedParameter]:
@@ -120,23 +218,38 @@ def extract_lab_parameters(text: str) -> list[ExtractedParameter]:
 
     for raw_line in text.splitlines():
         line = raw_line.strip()
-        if len(line) < 4:
+        if len(line) < 4 or line.startswith(("•", "*")) or line.endswith(("-", ",")):
             continue
         m = _PARAM_LINE.match(line)
         if not m:
             continue
 
-        name = m.group("name").strip(" :-")
-        # skip obvious non-test lines (header labels caught by the pattern)
-        if name.lower() in {"age", "date", "sex", "gender", "id", "name"}:
-            continue
-
+        name = _clean_name(m.group("name"))
         value = m.group("value")
         unit = m.group("unit")
         ref_range = m.group("range")
-        status = _status_from_range(value, ref_range)
+        label = (m.group("rlabel") or "").strip().lower()
+        flag = m.group("flag")
+
+        # Prose / headers / citations / reference-table bands are never test rows.
+        if not _looks_like_test_name(name):
+            continue
+        # A label such as "Low:" / "High:" marks a risk band, not the normal range.
+        if ref_range and label not in _NORMAL_LABELS:
+            ref_range = None
+        # A real result row carries a unit or a reference range.
+        if not unit and not ref_range:
+            continue
 
         loinc = match_test_name(name)
+        # Unrecognised names are kept only when the row is fully formed
+        # (unit AND range); otherwise it is dropped rather than guessed.
+        if not loinc.verified and not (unit and ref_range):
+            continue
+
+        status = _status_from_range(value, ref_range)
+        if status == "Unknown":
+            status = _flag_status(flag)
 
         key = name.lower()
         if key in seen_names:
@@ -160,36 +273,54 @@ def extract_lab_parameters(text: str) -> list[ExtractedParameter]:
     return results
 
 
+# Map LOINC categories to broad panels used for report-type labelling.
+_PANEL_OF_CATEGORY = {
+    "CBC": "CBC (Complete Blood Count)", "Hematology": "CBC (Complete Blood Count)",
+    "LFT": "LFT (Liver Function Test)", "KFT": "KFT (Kidney Function Test)",
+    "Lipid": "Lipid Profile", "Thyroid": "Thyroid Profile",
+    "Diabetes": "Diabetes / Blood Sugar Report", "Urine": "Urine Report",
+}
+
+
 def guess_report_type(text: str, parameters: list[ExtractedParameter]) -> str:
-    """Lightweight rule-based report-type classification from detected LOINC categories
-    and keyword hits. Falls back to 'General / Unclassified' rather than guessing."""
-    categories = [p.test_name_normalized for p in parameters if p.loinc_verified]
+    """Rule-based report-type label. Imaging/document types need an exact word hit;
+    lab reports are labelled by the panels actually found in verified results.
+    Reports spanning 3+ panels are 'Multi-panel Health Check-up' (never first-keyword wins)."""
     text_lower = text.lower()
-
     keyword_map = {
-        "MRI Report": ["mri", "magnetic resonance"],
-        "CT Report": ["ct scan", "computed tomography"],
-        "ECG Report": ["ecg", "electrocardiogram"],
-        "X-Ray Report": ["x-ray", "radiograph"],
-        "Discharge Summary": ["discharge summary", "discharged on"],
-        "Prescription": ["rx", "prescription", "take 1 tablet"],
-        "Urine Report": ["urine", "urinalysis"],
+        "MRI Report": [r"\bmri\b", r"magnetic resonance"],
+        "CT Report": [r"\bct scan\b", r"computed tomography"],
+        "ECG Report": [r"\becg\b", r"electrocardiogram"],
+        "X-Ray Report": [r"\bx-?ray\b", r"radiograph"],
+        "Discharge Summary": [r"discharge summary"],
+        "Prescription": [r"\bprescription\b", r"take 1 tablet"],
     }
-    for label, keywords in keyword_map.items():
-        if any(k in text_lower for k in keywords):
-            return label
+    for label, pats in keyword_map.items():
+        if any(re.search(p, text_lower) for p in pats):
+            if not [p for p in parameters if p.loinc_verified] or label in ("Discharge Summary", "Prescription"):
+                return label
 
-    if any(c and "hemoglobin" in c.lower() for c in categories):
-        return "CBC (Complete Blood Count)"
-    if any(c and c.lower() in {"alt", "ast", "total bilirubin", "albumin"} for c in categories):
-        return "LFT (Liver Function Test)"
-    if any(c and c.lower() in {"creatinine", "blood urea nitrogen", "egfr"} for c in categories):
-        return "KFT (Kidney Function Test)"
-    if any(c and "cholesterol" in (c or "").lower() for c in categories):
-        return "Lipid Profile"
-    if any(c and "tsh" in (c or "").lower() for c in categories):
-        return "Thyroid Profile"
-    if any(c and ("glucose" in (c or "").lower() or "hba1c" in (c or "").lower()) for c in categories):
-        return "Diabetes / Blood Sugar Report"
+    verified = [p for p in parameters if p.loinc_verified]
+    counts: dict[str, int] = {}
+    for p in verified:
+        panel = _PANEL_OF_CATEGORY.get(p.category or "")
+        if p.test_name_normalized and p.test_name_normalized.lower() in {"hba1c", "hemoglobin a1c"}:
+            panel = "Diabetes / Blood Sugar Report"
+        if p.category == "Chemistry" and p.test_name_normalized and "glucose" in p.test_name_normalized.lower():
+            panel = "Diabetes / Blood Sugar Report"
+        if panel:
+            counts[panel] = counts.get(panel, 0) + 1
+    # other verified categories (Chemistry, Iron, Vitamins...) still count as a panel each
+    other = {p.category for p in verified if p.category and p.category not in _PANEL_OF_CATEGORY}
+    panels = len(counts) + len(other)
 
+    if panels >= 3:
+        return "Multi-panel Health Check-up"
+    if len(counts) >= 1 and panels == 1:
+        return next(iter(counts))
+    if panels == 2 and counts:
+        return " + ".join(sorted(counts, key=counts.get, reverse=True)[:2]) if len(counts) == 2 else \
+            max(counts, key=counts.get) + " (with other tests)"
+    if "urine" in text_lower and not verified:
+        return "Urine Report"
     return "General / Unclassified"

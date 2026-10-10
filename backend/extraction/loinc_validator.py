@@ -15,6 +15,7 @@ full public LOINC release) as needed — no code changes required.
 """
 import csv
 import difflib
+import re
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -61,36 +62,65 @@ def _all_names(entry: LoincEntry) -> list[str]:
     return [entry.common_name] + entry.synonyms
 
 
-def match_test_name(raw_name: str, min_ratio: float = 0.82) -> LoincMatch:
+def _norm(text: str) -> str:
+    """lowercase, punctuation -> spaces, collapse whitespace."""
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", text.lower())).strip()
+
+
+def _contains_words(haystack: str, needle: str) -> bool:
+    """True if `needle` appears in `haystack` as whole words (not inside another word)."""
+    return bool(needle) and re.search(rf"(?<![a-z0-9]){re.escape(needle)}(?![a-z0-9])", haystack) is not None
+
+
+def match_test_name(raw_name: str, min_ratio: float = 0.90) -> LoincMatch:
     """
-    Fuzzy-match a raw extracted test name against the local LOINC subset.
-    Uses exact/substring match first, then difflib similarity as a fallback.
-    Never fabricates a match below the confidence threshold.
+    Match a raw extracted test name against the local LOINC subset.
+
+    Strict by design (a wrong 'verified' badge is worse than no badge):
+      1) exact match after normalisation (also tries each side of "T3 - Triiodothyronine");
+      2) a LOINC name found inside the text as WHOLE WORDS, only if it covers most of the
+         text (>= 75%) and is not a tiny token like 'ph' inside another word;
+      3) high-threshold fuzzy match (>= 0.90) for typos only.
+    Anything else is returned unverified.
     """
     if not raw_name or not raw_name.strip():
         return LoincMatch(False, None, None, None, 0.0)
 
-    cleaned = raw_name.strip().lower()
+    full = _norm(raw_name)
+    if not full:
+        return LoincMatch(False, None, None, None, 0.0)
+    parts = [full] + [_norm(p) for p in re.split(r"\s+-\s+|\s*/\s*(?=[A-Za-z]{4,})|[()]|,", raw_name) if _norm(p)]
     entries = _load_loinc()
 
-    # 1) exact / substring match (fast path, highest confidence)
+    # 1) exact normalised match
     for entry in entries:
-        for name in _all_names(entry):
-            if cleaned == name.lower() or cleaned in name.lower() or name.lower() in cleaned:
-                return LoincMatch(True, entry.common_name, entry.code, entry.category, 1.0)
+        names = {_norm(n) for n in _all_names(entry)}
+        if any(part in names for part in parts):
+            return LoincMatch(True, entry.common_name, entry.code, entry.category, 1.0)
 
-    # 2) fuzzy match fallback
-    best_score = 0.0
-    best_entry: LoincEntry | None = None
+    # 2) whole-word containment with coverage requirement (prefer the longest name)
+    best: tuple[int, LoincEntry] | None = None
     for entry in entries:
-        for name in _all_names(entry):
-            score = difflib.SequenceMatcher(None, cleaned, name.lower()).ratio()
+        for n in _all_names(entry):
+            nn = _norm(n)
+            if len(nn) < 4 or not _contains_words(full, nn):
+                continue
+            if len(nn) / len(full) >= 0.75 and (best is None or len(nn) > best[0]):
+                best = (len(nn), entry)
+    if best:
+        return LoincMatch(True, best[1].common_name, best[1].code, best[1].category, 0.95)
+
+    # 3) strict fuzzy (typos only)
+    best_score, best_entry = 0.0, None
+    for entry in entries:
+        for n in _all_names(entry):
+            nn = _norm(n)
+            if len(nn) < 5:
+                continue
+            score = difflib.SequenceMatcher(None, full, nn).ratio()
             if score > best_score:
-                best_score = score
-                best_entry = entry
-
+                best_score, best_entry = score, entry
     if best_entry and best_score >= min_ratio:
         return LoincMatch(True, best_entry.common_name, best_entry.code, best_entry.category, best_score)
 
-    # No confident match -> mark unverified rather than guessing
     return LoincMatch(False, None, None, None, best_score)
