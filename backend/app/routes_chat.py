@@ -8,6 +8,10 @@ from app.database import get_db
 from app.models import Report, ChatMessage
 from app.schemas import ChatRequest, ChatResponse, ChatMessageOut
 from rag.chat_engine import answer_question
+from rag.vector_store import ensure_index
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
@@ -31,6 +35,14 @@ def chat(payload: ChatRequest, db: Session = Depends(get_db)):
         raise HTTPException(404, "Report not found.")
 
     db.add(ChatMessage(report_id=report.id, role="user", content=payload.question, grounded=True))
+
+    # Rebuild the search index from the stored report text if it's missing (e.g. the
+    # server's disk was wiped on a restart, or the original build failed).
+    try:
+        report.vector_index_path = ensure_index(report.id, report.raw_text)
+    except Exception:
+        logger.exception("Could not (re)build vector index for report %s", report.id)
+        report.vector_index_path = None
 
     if not report.chat_available:
         answer = _INDEX_UNAVAILABLE_MESSAGE_TE if payload.language == "te" else _INDEX_UNAVAILABLE_MESSAGE_EN

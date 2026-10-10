@@ -34,7 +34,8 @@ def _get_embedder():
 
 def _embed(texts: list[str]) -> np.ndarray:
     """Return L2-normalized float32 embeddings, shape (len(texts), dim)."""
-    vectors = np.asarray(list(_get_embedder().embed(texts)), dtype="float32")
+    # Small batches keep peak memory low (Render free tier = 512 MB).
+    vectors = np.asarray(list(_get_embedder().embed(texts, batch_size=8)), dtype="float32")
     norms = np.linalg.norm(vectors, axis=1, keepdims=True)
     norms[norms == 0] = 1.0
     return vectors / norms
@@ -71,6 +72,22 @@ def build_index(report_id: str, full_text: str) -> str:
         json.dump([{"chunk_id": c.chunk_id, "text": c.text} for c in chunks], f, ensure_ascii=False)
 
     return directory
+
+
+def index_exists(report_id: str) -> bool:
+    directory = os.path.join(settings.VECTOR_STORE_DIR, report_id)
+    return os.path.exists(os.path.join(directory, "index.faiss")) and os.path.exists(
+        os.path.join(directory, "chunks.json")
+    )
+
+
+def ensure_index(report_id: str, full_text: str) -> str:
+    """Return the report's index directory, rebuilding it from the report text stored in
+    the database if the files are gone. Free hosting tiers wipe the disk on every restart
+    or sleep, but the report text lives in Postgres — so chat keeps working for old reports."""
+    if index_exists(report_id):
+        return os.path.join(settings.VECTOR_STORE_DIR, report_id)
+    return build_index(report_id, full_text)
 
 
 def retrieve(report_id: str, query: str, top_k: int | None = None) -> list[RetrievedChunk]:

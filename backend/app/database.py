@@ -19,8 +19,25 @@ database_url = settings.DATABASE_URL
 if database_url.startswith("postgres://"):
     database_url = database_url.replace("postgres://", "postgresql://", 1)
 
-connect_args = {"check_same_thread": False} if "sqlite" in database_url else {}
-engine = create_engine(database_url, connect_args=connect_args)
+if "sqlite" in database_url:
+    connect_args = {"check_same_thread": False}
+    engine_kwargs = {}
+else:
+    # Managed Postgres (Neon, Supabase) closes idle connections — Neon even suspends
+    # its compute after ~5 minutes of inactivity. Without these settings the pool hands
+    # out a dead connection and requests fail with "SSL connection has been closed
+    # unexpectedly". pool_pre_ping tests each connection before use and silently
+    # replaces dead ones; pool_recycle retires connections before the server does.
+    connect_args = {
+        "keepalives": 1,
+        "keepalives_idle": 30,
+        "keepalives_interval": 10,
+        "keepalives_count": 5,
+        "connect_timeout": 15,
+    }
+    engine_kwargs = {"pool_pre_ping": True, "pool_recycle": 240, "pool_size": 3, "max_overflow": 2}
+
+engine = create_engine(database_url, connect_args=connect_args, **engine_kwargs)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
