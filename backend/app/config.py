@@ -110,7 +110,12 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str = ""
 
     # --- RAG ---
-    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+    # Embeddings come from hosted APIs (no local model — a local model exceeds Render's
+    # 512 MB free tier). First available provider with a key wins; each report's index
+    # remembers which provider built it.
+    EMBEDDING_PROVIDER_ORDER: str = "mistral,gemini"
+    MISTRAL_EMBED_MODEL: str = "mistral-embed"
+    GEMINI_EMBED_MODEL: str = "gemini-embedding-001"
     CHUNK_SIZE_CHARS: int = 800
     CHUNK_OVERLAP_CHARS: int = 120
     RAG_TOP_K: int = 5
